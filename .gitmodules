@@ -1,0 +1,3 @@
+[submodule "device-management"]
+	path = device-management
+	url = https://github.com/apple/device-management
