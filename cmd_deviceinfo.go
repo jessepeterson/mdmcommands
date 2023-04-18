@@ -2,7 +2,7 @@
 package mdmcommands
 // DeviceInformationPayload
 type DeviceInformationPayload struct {
-	Queries                []string `plist:"Queries"` // 82 array values defined in schema
+	Queries                []string `plist:"Queries"` // 85 array values defined in schema
 	DeviceAttestationNonce []byte   `plist:"DeviceAttestationNonce,omitempty"`
 	RequestType            string   `plist:"RequestType"`
 }
@@ -32,7 +32,7 @@ type OSUpdateSettings struct {
 	PreviousScanDate                interface{} `plist:"PreviousScanDate"` // unknown type: <date>
 	PreviousScanResult              string      `plist:"PreviousScanResult"`
 	PerformPeriodicCheck            bool        `plist:"PerformPeriodicCheck"`
-	AutomaticCheckEnabled           bool        `plist:"AutomaticCheckEnabled"`
+	AutoCheckEnabled                bool        `plist:"AutoCheckEnabled"`
 	BackgroundDownloadEnabled       bool        `plist:"BackgroundDownloadEnabled"`
 	AutomaticAppInstallationEnabled bool        `plist:"AutomaticAppInstallationEnabled"`
 	AutomaticOSInstallationEnabled  bool        `plist:"AutomaticOSInstallationEnabled"`
@@ -94,6 +94,7 @@ type QueryResponses struct {
 	SupplementalBuildVersion              string                        `plist:"SupplementalBuildVersion"`
 	ModelName                             string                        `plist:"ModelName"`
 	Model                                 string                        `plist:"Model"`
+	ModelNumber                           string                        `plist:"ModelNumber"`
 	IsAppleSilicon                        bool                          `plist:"IsAppleSilicon"`
 	ProductName                           string                        `plist:"ProductName"`
 	SerialNumber                          string                        `plist:"SerialNumber"`
@@ -104,6 +105,7 @@ type QueryResponses struct {
 	ModemFirmwareVersion                  string                        `plist:"ModemFirmwareVersion"`
 	CellularTechnology                    int                           `plist:"CellularTechnology"`
 	BatteryLevel                          float64                       `plist:"BatteryLevel"`
+	HasBattery                            bool                          `plist:"HasBattery"`
 	IsSupervised                          bool                          `plist:"IsSupervised"`
 	IsMultiUser                           bool                          `plist:"IsMultiUser"`
 	IsDeviceLocatorServiceEnabled         bool                          `plist:"IsDeviceLocatorServiceEnabled"`
@@ -163,6 +165,7 @@ type QueryResponses struct {
 	SoftwareUpdateSettings                SoftwareUpdateSettings        `plist:"SoftwareUpdateSettings"`
 	AccessibilitySettings                 AccessibilitySettings         `plist:"AccessibilitySettings"`
 	DevicePropertiesAttestation           [][]byte                      `plist:"DevicePropertiesAttestation"`
+	EACSPreflight                         string                        `plist:"EACSPreflight"`
 }
 // DeviceInformationResponse
 type DeviceInformationResponse struct {
