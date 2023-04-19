@@ -3,6 +3,7 @@ package mdmcommands
 
 const InstallMediaRequestType = "InstallMedia"
 
+// InstallMediaPayload is the "inner" command-specific payload for the "InstallMedia" Apple MDM command.
 type InstallMediaPayload struct {
 	ITunesStoreID                *int    `plist:"iTunesStoreID,omitempty"`
 	MediaURL                     *string `plist:",omitempty"`
@@ -15,9 +16,19 @@ type InstallMediaPayload struct {
 	RequestType                  string  // must be set to "InstallMedia"
 	RequestRequiresNetworkTether *bool   `plist:",omitempty"`
 }
+
+// InstallMediaCommand is the top-level structure for the "InstallMedia" Apple MDM command.
 type InstallMediaCommand struct {
 	Command     InstallMediaPayload
 	CommandUUID string
+}
+
+// GenericCommand creates a new generic command using the values of c
+func (c *InstallMediaCommand) GenericCommand() *GenericCommand {
+	cmd := NewGenericCommand(c.Command.RequestType)
+	cmd.CommandUUID = c.CommandUUID
+	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
+	return cmd
 }
 
 // NewInstallMediaCommand creates a new "InstallMedia" Apple MDM command.

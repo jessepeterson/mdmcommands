@@ -5,15 +5,26 @@ import "time"
 
 const DeviceInformationRequestType = "DeviceInformation"
 
+// DeviceInformationPayload is the "inner" command-specific payload for the "DeviceInformation" Apple MDM command.
 type DeviceInformationPayload struct {
 	Queries                      []string // 85 array values defined in schema
 	DeviceAttestationNonce       *[]byte  `plist:",omitempty"`
 	RequestType                  string   // must be set to "DeviceInformation"
 	RequestRequiresNetworkTether *bool    `plist:",omitempty"`
 }
+
+// DeviceInformationCommand is the top-level structure for the "DeviceInformation" Apple MDM command.
 type DeviceInformationCommand struct {
 	Command     DeviceInformationPayload
 	CommandUUID string
+}
+
+// GenericCommand creates a new generic command using the values of c
+func (c *DeviceInformationCommand) GenericCommand() *GenericCommand {
+	cmd := NewGenericCommand(c.Command.RequestType)
+	cmd.CommandUUID = c.CommandUUID
+	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
+	return cmd
 }
 
 // NewDeviceInformationCommand creates a new "DeviceInformation" Apple MDM command.
