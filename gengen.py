@@ -8,8 +8,8 @@ ADMDIR = "device-management/mdm/commands"
 
 groups = {
     "media": ["media.install.yaml", "media.remove.yaml", "media.managed.list.yaml"],
-    "deviceinfo": ["information.device.yaml", "information.security.yaml"],
-    "profiles": [
+    "information": ["information.device.yaml", "information.security.yaml"],
+    "profile": [
         "profile.install.yaml",
         "profile.remove.yaml",
         "profile.list.yaml",
