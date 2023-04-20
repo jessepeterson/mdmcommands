@@ -9,7 +9,7 @@ const DeviceInformationRequestType = "DeviceInformation"
 
 // DeviceInformationPayload is the "inner" command-specific payload for the "DeviceInformation" Apple MDM command.
 type DeviceInformationPayload struct {
-	Queries                      []string // 85 array values defined in schema
+	Queries                      []string // 85 array value(s) defined in schema
 	DeviceAttestationNonce       *[]byte  `plist:",omitempty"`
 	RequestType                  string   // must be set to "DeviceInformation"
 	RequestRequiresNetworkTether *bool    `plist:",omitempty"`
@@ -256,7 +256,7 @@ type ManagementStatus struct {
 type SecureBoot struct {
 	SecureBootLevel   *string
 	ExternalBootLevel *string
-	ReducedSecurity   *[]string // 3 array values defined in schema
+	ReducedSecurity   *[]string // 3 array value(s) defined in schema
 }
 type SecurityInfo struct {
 	HardwareEncryptionCaps                           *int
