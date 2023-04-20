@@ -9,6 +9,14 @@ ADMDIR = "device-management/mdm/commands"
 groups = {
     "installmedia": ["media.install.yaml"],
     "deviceinfo": ["information.device.yaml", "information.security.yaml"],
+    "profiles": [
+        "profile.install.yaml",
+        "profile.remove.yaml",
+        "profile.list.yaml",
+        "profile.provisioning.install.yaml",
+        "profile.provisioning.remove.yaml",
+        "profile.provisioning.list.yaml",
+    ],
 }
 
 allfiles = [f for f in os.listdir(ADMDIR) if f.endswith("yaml")]
