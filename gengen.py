@@ -7,7 +7,7 @@ GOPKG = "mdmcommands"
 ADMDIR = "device-management/mdm/commands"
 
 groups = {
-    "installmedia": ["media.install.yaml"],
+    "media": ["media.install.yaml", "media.remove.yaml", "media.managed.list.yaml"],
     "deviceinfo": ["information.device.yaml", "information.security.yaml"],
     "profiles": [
         "profile.install.yaml",
