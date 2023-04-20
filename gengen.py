@@ -7,8 +7,8 @@ GOPKG = "mdmcommands"
 ADMDIR = "device-management/mdm/commands"
 
 groups = {
-    "installmedia": ["media.install"],
-    "deviceinfo": ["information.device", "information.security"],
+    "installmedia": ["media.install.yaml"],
+    "deviceinfo": ["information.device.yaml", "information.security.yaml"],
 }
 
 allfiles = [f for f in os.listdir(ADMDIR) if f.endswith("yaml")]
@@ -19,14 +19,13 @@ print()
 print(f"//go:generate admgencmd -pkg {GOPKG} -o shared.go")
 
 for group, files in groups.items():
-    yaml_files = [f + ".yaml" for f in files]
-    for f in yaml_files:
+    for f in files:
         if f in rfiles:
             rfiles.remove(f)
         else:
             sys.stderr.write(f"WARNING: {f} specified, but not found in {ADMDIR}\n")
 
-    dir_files = " ".join([f"{ADMDIR}/{f}" for f in yaml_files])
+    dir_files = " ".join([f"{ADMDIR}/{f}" for f in files])
     print(
         f"//go:generate admgencmd -pkg {GOPKG} -no-shared -o cmd_{group}.go {dir_files}"
     )
