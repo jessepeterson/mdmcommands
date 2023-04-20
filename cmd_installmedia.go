@@ -36,6 +36,13 @@ func NewInstallMediaCommand() *InstallMediaCommand {
 	return &InstallMediaCommand{Command: InstallMediaPayload{RequestType: InstallMediaRequestType}}
 }
 
+func init() {
+	// associate our Request Type to a function for creating a command of that type
+	newCommandFuncs[InstallMediaRequestType] = func() interface{} {
+		return NewInstallMediaCommand()
+	}
+}
+
 type InstallMediaResponse struct {
 	ITunesStoreID   *int    `plist:"iTunesStoreID,omitempty"`
 	MediaURL        *string `plist:",omitempty"`
@@ -45,4 +52,11 @@ type InstallMediaResponse struct {
 	RejectionReason *string `plist:",omitempty"`
 	CommandUUID     string
 	Status          string
+}
+
+func init() {
+	// associate our Request Type to a function for creating a response of that type
+	newResponseFuncs[InstallMediaRequestType] = func() interface{} {
+		return new(InstallMediaResponse)
+	}
 }

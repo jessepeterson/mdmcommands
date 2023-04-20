@@ -32,6 +32,13 @@ func NewDeviceInformationCommand() *DeviceInformationCommand {
 	return &DeviceInformationCommand{Command: DeviceInformationPayload{RequestType: DeviceInformationRequestType}}
 }
 
+func init() {
+	// associate our Request Type to a function for creating a command of that type
+	newCommandFuncs[DeviceInformationRequestType] = func() interface{} {
+		return NewDeviceInformationCommand()
+	}
+}
+
 type OrganizationInfo struct {
 	OrganizationName    string
 	OrganizationAddress *string `plist:",omitempty"`
@@ -184,4 +191,11 @@ type DeviceInformationResponse struct {
 	QueryResponses QueryResponses
 	CommandUUID    string
 	Status         string
+}
+
+func init() {
+	// associate our Request Type to a function for creating a response of that type
+	newResponseFuncs[DeviceInformationRequestType] = func() interface{} {
+		return new(DeviceInformationResponse)
+	}
 }

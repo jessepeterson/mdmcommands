@@ -22,3 +22,24 @@ type GenericCommander interface {
 func NewGenericCommand(requestType string) *GenericCommand {
 	return &GenericCommand{Command: GenericCommandPayload{RequestType: requestType}}
 }
+
+var newCommandFuncs map[string]func() interface{} = make(map[string]func() interface{})
+var newResponseFuncs map[string]func() interface{} = make(map[string]func() interface{})
+
+// NewCommand creates a new command from requestType.
+func NewCommand(requestType string) interface{} {
+	newCmdFn, ok := newCommandFuncs[requestType]
+	if !ok || newCmdFn == nil {
+		return nil
+	}
+	return newCmdFn()
+}
+
+// NewResponse creates a new command response from requestType.
+func NewResponse(requestType string) interface{} {
+	newRespFn, ok := newResponseFuncs[requestType]
+	if !ok || newRespFn == nil {
+		return nil
+	}
+	return newRespFn()
+}
