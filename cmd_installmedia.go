@@ -53,6 +53,9 @@ type InstallMediaResponse struct {
 	RejectionReason *string `plist:",omitempty"`
 	CommandUUID     string
 	Status          string
+	NotOnConsole    bool
+	ErrorChain      *[]ErrorChain `plist:",omitempty"`
+	Enrollment
 }
 
 func init() {

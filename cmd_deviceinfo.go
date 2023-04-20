@@ -192,6 +192,9 @@ type DeviceInformationResponse struct {
 	QueryResponses QueryResponses
 	CommandUUID    string
 	Status         string
+	NotOnConsole   bool
+	ErrorChain     *[]ErrorChain `plist:",omitempty"`
+	Enrollment
 }
 
 func init() {

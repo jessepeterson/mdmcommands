@@ -43,3 +43,21 @@ func NewResponse(requestType string) interface{} {
 	}
 	return newRespFn()
 }
+
+// ErrorChain represents errors that occured on the client executing an MDM command.
+type ErrorChain struct {
+	ErrorCode            int
+	ErrorDomain          string
+	LocalizedDescription string
+	USEnglishDescription string
+}
+
+// Enrollment represents the various enrollment-related data sent with responses.
+type Enrollment struct {
+	UDID             *string `plist:",omitempty"`
+	UserID           *string `plist:",omitempty"`
+	UserShortName    *string `plist:",omitempty"`
+	UserLongName     *string `plist:",omitempty"`
+	EnrollmentID     *string `plist:",omitempty"`
+	EnrollmentUserID *string `plist:",omitempty"`
+}
