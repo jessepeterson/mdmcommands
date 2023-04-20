@@ -13,6 +13,11 @@ type GenericCommand struct {
 	Command     GenericCommandPayload
 }
 
+// GenericCommanders can extract a GenericCommand.
+type GenericCommander interface {
+	GenericCommand() *GenericCommand
+}
+
 // NewGenericCommand creates a new generic Apple MDM command.
 func NewGenericCommand(requestType string) *GenericCommand {
 	return &GenericCommand{Command: GenericCommandPayload{RequestType: requestType}}
