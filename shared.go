@@ -61,3 +61,12 @@ type Enrollment struct {
 	EnrollmentID     *string `plist:",omitempty"`
 	EnrollmentUserID *string `plist:",omitempty"`
 }
+
+// GenericResponse represents the common MDM command response fields.
+type GenericResponse struct {
+	CommandUUID  string
+	Status       string
+	NotOnConsole bool
+	ErrorChain   *[]ErrorChain `plist:",omitempty"`
+	Enrollment
+}
