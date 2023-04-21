@@ -31,6 +31,7 @@ func init() {
 	}
 }
 
+// EnableRemoteDesktopResponse is the command result report (response) for the "EnableRemoteDesktop" Apple MDM command.
 type EnableRemoteDesktopResponse struct {
 	GenericResponse
 }
@@ -70,6 +71,7 @@ func init() {
 	}
 }
 
+// DisableRemoteDesktopResponse is the command result report (response) for the "DisableRemoteDesktop" Apple MDM command.
 type DisableRemoteDesktopResponse struct {
 	GenericResponse
 }

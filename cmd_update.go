@@ -10,9 +10,9 @@ const ScheduleOSUpdateRequestType = "ScheduleOSUpdate"
 type UpdatesItem struct {
 	ProductKey       *string `plist:",omitempty"`
 	ProductVersion   *string `plist:",omitempty"`
-	InstallAction    string
+	InstallAction    string  // possible values: Default, DownloadOnly, InstallASAP, NotifyOnly, InstallLater, InstallForceRestart
 	MaxUserDeferrals *int    `plist:",omitempty"`
-	Priority         *string `plist:",omitempty"`
+	Priority         *string `plist:",omitempty"` // possible values: Low, High
 }
 
 // ScheduleOSUpdatePayload is the "inner" command-specific payload for the "ScheduleOSUpdate" Apple MDM command.
@@ -48,15 +48,14 @@ func init() {
 	}
 }
 
-type ErrorChainItem struct {
-	ANY interface{} // unknown type: <any>
-}
 type UpdateResultsItem struct {
 	ProductKey    string
-	InstallAction string
-	Status        string
-	ErrorChain    *[]ErrorChainItem `plist:",omitempty"`
+	InstallAction string         // possible values: Error, DownloadOnly, InstallASAP, NotifyOnly, InstallLater, InstallForceRestart
+	Status        string         // possible values: Idle, Downloading, DownloadFailed, DownloadRequiresComputer, DownloadInsufficientSpace, DownloadInsufficientPower, DownloadInsufficientNetwork, Installing, InstallInsufficientSpace, InstallInsufficientPower, InstallPhoneCallInProgress, InstallFailed
+	ErrorChain    *[]interface{} `plist:",omitempty"` // <any> type as single dictionary subkey
 }
+
+// ScheduleOSUpdateResponse is the command result report (response) for the "ScheduleOSUpdate" Apple MDM command.
 type ScheduleOSUpdateResponse struct {
 	UpdateResults []UpdateResultsItem
 	GenericResponse
@@ -120,6 +119,8 @@ type AvailableOSUpdatesItem struct {
 	SupplementalBuildVersion   *string `plist:",omitempty"`
 	SupplementalOSVersionExtra *string `plist:",omitempty"`
 }
+
+// AvailableOSUpdatesResponse is the command result report (response) for the "AvailableOSUpdates" Apple MDM command.
 type AvailableOSUpdatesResponse struct {
 	AvailableOSUpdates []AvailableOSUpdatesItem
 	GenericResponse
@@ -167,6 +168,7 @@ func init() {
 	}
 }
 
+// ScheduleOSUpdateScanResponse is the command result report (response) for the "ScheduleOSUpdateScan" Apple MDM command.
 type ScheduleOSUpdateScanResponse struct {
 	ScanInitiated bool
 	GenericResponse
@@ -217,6 +219,8 @@ type OSUpdateStatusItem struct {
 	NextScheduledInstall    *time.Time   `plist:",omitempty"`
 	PastNotifications       *[]time.Time `plist:",omitempty"`
 }
+
+// OSUpdateStatusResponse is the command result report (response) for the "OSUpdateStatus" Apple MDM command.
 type OSUpdateStatusResponse struct {
 	OSUpdateStatus []OSUpdateStatusItem
 	GenericResponse

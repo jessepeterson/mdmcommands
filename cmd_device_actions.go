@@ -31,6 +31,7 @@ func init() {
 	}
 }
 
+// ShutDownDeviceResponse is the command result report (response) for the "ShutDownDevice" Apple MDM command.
 type ShutDownDeviceResponse struct {
 	GenericResponse
 }
@@ -79,6 +80,7 @@ func init() {
 	}
 }
 
+// RestartDeviceResponse is the command result report (response) for the "RestartDevice" Apple MDM command.
 type RestartDeviceResponse struct {
 	GenericResponse
 }
@@ -118,6 +120,7 @@ func init() {
 	}
 }
 
+// DeviceConfiguredResponse is the command result report (response) for the "DeviceConfigured" Apple MDM command.
 type DeviceConfiguredResponse struct {
 	GenericResponse
 }
@@ -157,6 +160,7 @@ func init() {
 	}
 }
 
+// StopMirroringResponse is the command result report (response) for the "StopMirroring" Apple MDM command.
 type StopMirroringResponse struct {
 	GenericResponse
 }
@@ -206,6 +210,7 @@ func init() {
 	}
 }
 
+// RequestMirroringResponse is the command result report (response) for the "RequestMirroring" Apple MDM command.
 type RequestMirroringResponse struct {
 	MirroringResult *string `plist:",omitempty"`
 	GenericResponse
@@ -225,7 +230,7 @@ type EraseDevicePayload struct {
 	PreserveDataPlan             *bool   `plist:",omitempty"`
 	DisallowProximitySetup       *bool   `plist:",omitempty"`
 	PIN                          *string `plist:",omitempty"`
-	ObliterationBehavior         *string `plist:",omitempty"`
+	ObliterationBehavior         *string `plist:",omitempty"` // possible values: Default, DoNotObliterate, ObliterateWithWarning, Always
 	RequestType                  string  // must be set to "EraseDevice"
 	RequestRequiresNetworkTether *bool   `plist:",omitempty"`
 }
@@ -256,6 +261,7 @@ func init() {
 	}
 }
 
+// EraseDeviceResponse is the command result report (response) for the "EraseDevice" Apple MDM command.
 type EraseDeviceResponse struct {
 	GenericResponse
 }
@@ -304,6 +310,7 @@ func init() {
 	}
 }
 
+// EnableLostModeResponse is the command result report (response) for the "EnableLostMode" Apple MDM command.
 type EnableLostModeResponse struct {
 	GenericResponse
 }
@@ -343,6 +350,7 @@ func init() {
 	}
 }
 
+// DisableLostModeResponse is the command result report (response) for the "DisableLostMode" Apple MDM command.
 type DisableLostModeResponse struct {
 	GenericResponse
 }
@@ -391,6 +399,7 @@ func init() {
 	}
 }
 
+// DeviceLockResponse is the command result report (response) for the "DeviceLock" Apple MDM command.
 type DeviceLockResponse struct {
 	MessageResult *string `plist:",omitempty"`
 	GenericResponse

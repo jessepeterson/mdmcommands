@@ -40,6 +40,7 @@ func init() {
 	}
 }
 
+// InstallProfileResponse is the command result report (response) for the "InstallProfile" Apple MDM command.
 type InstallProfileResponse struct {
 	GenericResponse
 }
@@ -86,6 +87,7 @@ func init() {
 	}
 }
 
+// RemoveProfileResponse is the command result report (response) for the "RemoveProfile" Apple MDM command.
 type RemoveProfileResponse struct {
 	GenericResponse
 }
@@ -154,6 +156,8 @@ type ProfileListItem struct {
 	IsManaged                *bool                 `plist:",omitempty"`
 	PayloadContent           *[]PayloadContentItem `plist:",omitempty"`
 }
+
+// ProfileListResponse is the command result report (response) for the "ProfileList" Apple MDM command.
 type ProfileListResponse struct {
 	ProfileList []ProfileListItem
 	GenericResponse
@@ -201,6 +205,7 @@ func init() {
 	}
 }
 
+// InstallProvisioningProfileResponse is the command result report (response) for the "InstallProvisioningProfile" Apple MDM command.
 type InstallProvisioningProfileResponse struct {
 	GenericResponse
 }
@@ -247,6 +252,7 @@ func init() {
 	}
 }
 
+// RemoveProvisioningProfileResponse is the command result report (response) for the "RemoveProvisioningProfile" Apple MDM command.
 type RemoveProvisioningProfileResponse struct {
 	GenericResponse
 }
@@ -298,6 +304,8 @@ type ProvisioningProfileListItem struct {
 	UUID       string
 	ExpiryDate *time.Time `plist:",omitempty"`
 }
+
+// ProvisioningProfileListResponse is the command result report (response) for the "ProvisioningProfileList" Apple MDM command.
 type ProvisioningProfileListResponse struct {
 	ProvisioningProfileList []ProvisioningProfileListItem
 	GenericResponse

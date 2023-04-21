@@ -9,9 +9,9 @@ const InstallMediaRequestType = "InstallMedia"
 type InstallMediaPayload struct {
 	ITunesStoreID                *int    `plist:"iTunesStoreID,omitempty"`
 	MediaURL                     *string `plist:",omitempty"`
-	MediaType                    string
+	MediaType                    string  // possible values: Book
 	PersistentID                 *string `plist:",omitempty"`
-	Kind                         *string `plist:",omitempty"`
+	Kind                         *string `plist:",omitempty"` // possible values: pdf, epub, ibooks
 	Version                      *string `plist:",omitempty"`
 	Author                       *string `plist:",omitempty"`
 	Title                        *string `plist:",omitempty"`
@@ -45,13 +45,14 @@ func init() {
 	}
 }
 
+// InstallMediaResponse is the command result report (response) for the "InstallMedia" Apple MDM command.
 type InstallMediaResponse struct {
 	ITunesStoreID   *int    `plist:"iTunesStoreID,omitempty"`
 	MediaURL        *string `plist:",omitempty"`
 	PersistentID    *string `plist:",omitempty"`
 	MediaType       *string `plist:",omitempty"`
-	State           *string `plist:",omitempty"`
-	RejectionReason *string `plist:",omitempty"`
+	State           *string `plist:",omitempty"` // possible values: Queued, PromptingForLogin, Updating, Installing, Managed, ManagedButUninstalled, Installed, Uninstalled, Failed, Unknown
+	RejectionReason *string `plist:",omitempty"` // possible values: CouldNotVerifyITunesStoreID, PurchaseNotFound, AppStoreDisabled, WrongMediaType, DownloadInvalid, EnterpriseBooksNotSupportedInMultiUser
 	GenericResponse
 }
 
@@ -66,7 +67,7 @@ const RemoveMediaRequestType = "RemoveMedia"
 
 // RemoveMediaPayload is the "inner" command-specific payload for the "RemoveMedia" Apple MDM command.
 type RemoveMediaPayload struct {
-	MediaType                    string
+	MediaType                    string  // possible values: Book
 	ITunesStoreID                *string `plist:"iTunesStoreID,omitempty"`
 	PersistentID                 *string `plist:",omitempty"`
 	RequestType                  string  // must be set to "RemoveMedia"
@@ -99,6 +100,7 @@ func init() {
 	}
 }
 
+// RemoveMediaResponse is the command result report (response) for the "RemoveMedia" Apple MDM command.
 type RemoveMediaResponse struct {
 	GenericResponse
 }
@@ -147,6 +149,8 @@ type BooksItem struct {
 	Author        *string `plist:",omitempty"`
 	Title         *string `plist:",omitempty"`
 }
+
+// ManagedMediaListResponse is the command result report (response) for the "ManagedMediaList" Apple MDM command.
 type ManagedMediaListResponse struct {
 	Books []BooksItem
 	GenericResponse
