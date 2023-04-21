@@ -17,6 +17,24 @@ groups = {
         "profile.provisioning.remove.yaml",
         "profile.provisioning.list.yaml",
     ],
+    "remotedesktop": ["remotedesktop.enable.yaml", "remotedesktop.disable.yaml"],
+    "device_actions": [
+        "device.shutdown.yaml",
+        "device.restart.yaml",
+        "device.configured.yaml",
+        "mirroring.stop.yaml",
+        "mirroring.request.yaml",
+        "device.erase.yaml",
+        "device.lostmode.enable.yaml",
+        "device.lostmode.disable.yaml",
+        "device.lock.yaml",
+    ],
+    "update": [
+        "system.update.schedule.yaml",
+        "system.update.available.yaml",
+        "system.update.scan.yaml",
+        "system.update.status.yaml",
+    ],
 }
 
 allfiles = [f for f in os.listdir(ADMDIR) if f.endswith("yaml")]
