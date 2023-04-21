@@ -35,6 +35,12 @@ groups = {
         "system.update.scan.yaml",
         "system.update.status.yaml",
     ],
+    "user": [
+        "user.delete.yaml",
+        "user.list.yaml",
+        "user.logout.yaml",
+        "user.unlock.yaml",
+    ],
 }
 
 allfiles = [f for f in os.listdir(ADMDIR) if f.endswith("yaml")]
