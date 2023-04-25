@@ -11,7 +11,7 @@ type ShutDownDeviceCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *ShutDownDeviceCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -34,6 +34,11 @@ func init() {
 // ShutDownDeviceResponse is the command result report (response) for the "ShutDownDevice" Apple MDM command.
 type ShutDownDeviceResponse struct {
 	GenericResponse
+}
+
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *ShutDownDeviceResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
 }
 
 func init() {
@@ -60,7 +65,7 @@ type RestartDeviceCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *RestartDeviceCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -85,6 +90,11 @@ type RestartDeviceResponse struct {
 	GenericResponse
 }
 
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *RestartDeviceResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
+}
+
 func init() {
 	// associate our Request Type to a function for creating a response of that type
 	newResponseFuncs[RestartDeviceRequestType] = func() interface{} {
@@ -100,7 +110,7 @@ type DeviceConfiguredCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *DeviceConfiguredCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -123,6 +133,11 @@ func init() {
 // DeviceConfiguredResponse is the command result report (response) for the "DeviceConfigured" Apple MDM command.
 type DeviceConfiguredResponse struct {
 	GenericResponse
+}
+
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *DeviceConfiguredResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
 }
 
 func init() {
@@ -150,7 +165,7 @@ type EraseDeviceCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *EraseDeviceCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -173,6 +188,11 @@ func init() {
 // EraseDeviceResponse is the command result report (response) for the "EraseDevice" Apple MDM command.
 type EraseDeviceResponse struct {
 	GenericResponse
+}
+
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *EraseDeviceResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
 }
 
 func init() {
@@ -199,7 +219,7 @@ type EnableLostModeCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *EnableLostModeCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -224,6 +244,11 @@ type EnableLostModeResponse struct {
 	GenericResponse
 }
 
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *EnableLostModeResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
+}
+
 func init() {
 	// associate our Request Type to a function for creating a response of that type
 	newResponseFuncs[EnableLostModeRequestType] = func() interface{} {
@@ -239,7 +264,7 @@ type DisableLostModeCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *DisableLostModeCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -264,6 +289,11 @@ type DisableLostModeResponse struct {
 	GenericResponse
 }
 
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *DisableLostModeResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
+}
+
 func init() {
 	// associate our Request Type to a function for creating a response of that type
 	newResponseFuncs[DisableLostModeRequestType] = func() interface{} {
@@ -279,7 +309,7 @@ type DeviceLocationCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *DeviceLocationCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -312,6 +342,11 @@ type DeviceLocationResponse struct {
 	GenericResponse
 }
 
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *DeviceLocationResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
+}
+
 func init() {
 	// associate our Request Type to a function for creating a response of that type
 	newResponseFuncs[DeviceLocationRequestType] = func() interface{} {
@@ -327,7 +362,7 @@ type PlayLostModeSoundCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *PlayLostModeSoundCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -352,6 +387,11 @@ type PlayLostModeSoundResponse struct {
 	GenericResponse
 }
 
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *PlayLostModeSoundResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
+}
+
 func init() {
 	// associate our Request Type to a function for creating a response of that type
 	newResponseFuncs[PlayLostModeSoundRequestType] = func() interface{} {
@@ -367,7 +407,7 @@ type ClearRestrictionsPasswordCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *ClearRestrictionsPasswordCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -390,6 +430,11 @@ func init() {
 // ClearRestrictionsPasswordResponse is the command result report (response) for the "ClearRestrictionsPassword" Apple MDM command.
 type ClearRestrictionsPasswordResponse struct {
 	GenericResponse
+}
+
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *ClearRestrictionsPasswordResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
 }
 
 func init() {
@@ -416,7 +461,7 @@ type DeviceLockCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *DeviceLockCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -442,6 +487,11 @@ type DeviceLockResponse struct {
 	GenericResponse
 }
 
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *DeviceLockResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
+}
+
 func init() {
 	// associate our Request Type to a function for creating a response of that type
 	newResponseFuncs[DeviceLockRequestType] = func() interface{} {
@@ -464,7 +514,7 @@ type RefreshCellularPlansCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *RefreshCellularPlansCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -489,6 +539,11 @@ type RefreshCellularPlansResponse struct {
 	GenericResponse
 }
 
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *RefreshCellularPlansResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
+}
+
 func init() {
 	// associate our Request Type to a function for creating a response of that type
 	newResponseFuncs[RefreshCellularPlansRequestType] = func() interface{} {
@@ -504,7 +559,7 @@ type ActivationLockBypassCodeCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *ActivationLockBypassCodeCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -530,6 +585,11 @@ type ActivationLockBypassCodeResponse struct {
 	GenericResponse
 }
 
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *ActivationLockBypassCodeResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
+}
+
 func init() {
 	// associate our Request Type to a function for creating a response of that type
 	newResponseFuncs[ActivationLockBypassCodeRequestType] = func() interface{} {
@@ -545,7 +605,7 @@ type ClearActivationLockBypassCodeCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *ClearActivationLockBypassCodeCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -570,6 +630,11 @@ type ClearActivationLockBypassCodeResponse struct {
 	GenericResponse
 }
 
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *ClearActivationLockBypassCodeResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
+}
+
 func init() {
 	// associate our Request Type to a function for creating a response of that type
 	newResponseFuncs[ClearActivationLockBypassCodeRequestType] = func() interface{} {
@@ -592,7 +657,7 @@ type DeclarativeManagementCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *DeclarativeManagementCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -615,6 +680,11 @@ func init() {
 // DeclarativeManagementResponse is the command result report (response) for the "DeclarativeManagement" Apple MDM command.
 type DeclarativeManagementResponse struct {
 	GenericResponse
+}
+
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *DeclarativeManagementResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
 }
 
 func init() {
@@ -648,7 +718,7 @@ type RotateFileVaultKeyCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *RotateFileVaultKeyCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -676,6 +746,11 @@ type RotateResult struct {
 type RotateFileVaultKeyResponse struct {
 	RotateResult *RotateResult `plist:",omitempty"`
 	GenericResponse
+}
+
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *RotateFileVaultKeyResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
 }
 
 func init() {

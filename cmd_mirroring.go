@@ -11,7 +11,7 @@ type StopMirroringCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *StopMirroringCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -34,6 +34,11 @@ func init() {
 // StopMirroringResponse is the command result report (response) for the "StopMirroring" Apple MDM command.
 type StopMirroringResponse struct {
 	GenericResponse
+}
+
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *StopMirroringResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
 }
 
 func init() {
@@ -61,7 +66,7 @@ type RequestMirroringCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *RequestMirroringCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -85,6 +90,11 @@ func init() {
 type RequestMirroringResponse struct {
 	MirroringResult *string `plist:",omitempty"`
 	GenericResponse
+}
+
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *RequestMirroringResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
 }
 
 func init() {

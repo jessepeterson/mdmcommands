@@ -28,7 +28,7 @@ type ScheduleOSUpdateCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *ScheduleOSUpdateCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -61,6 +61,11 @@ type ScheduleOSUpdateResponse struct {
 	GenericResponse
 }
 
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *ScheduleOSUpdateResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
+}
+
 func init() {
 	// associate our Request Type to a function for creating a response of that type
 	newResponseFuncs[ScheduleOSUpdateRequestType] = func() interface{} {
@@ -76,7 +81,7 @@ type AvailableOSUpdatesCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *AvailableOSUpdatesCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -126,6 +131,11 @@ type AvailableOSUpdatesResponse struct {
 	GenericResponse
 }
 
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *AvailableOSUpdatesResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
+}
+
 func init() {
 	// associate our Request Type to a function for creating a response of that type
 	newResponseFuncs[AvailableOSUpdatesRequestType] = func() interface{} {
@@ -148,7 +158,7 @@ type ScheduleOSUpdateScanCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *ScheduleOSUpdateScanCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -174,6 +184,11 @@ type ScheduleOSUpdateScanResponse struct {
 	GenericResponse
 }
 
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *ScheduleOSUpdateScanResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
+}
+
 func init() {
 	// associate our Request Type to a function for creating a response of that type
 	newResponseFuncs[ScheduleOSUpdateScanRequestType] = func() interface{} {
@@ -189,7 +204,7 @@ type OSUpdateStatusCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *OSUpdateStatusCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -224,6 +239,11 @@ type OSUpdateStatusItem struct {
 type OSUpdateStatusResponse struct {
 	OSUpdateStatus []OSUpdateStatusItem
 	GenericResponse
+}
+
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *OSUpdateStatusResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
 }
 
 func init() {

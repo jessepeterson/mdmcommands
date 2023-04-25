@@ -20,7 +20,7 @@ type InstallProfileCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *InstallProfileCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -45,6 +45,11 @@ type InstallProfileResponse struct {
 	GenericResponse
 }
 
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *InstallProfileResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
+}
+
 func init() {
 	// associate our Request Type to a function for creating a response of that type
 	newResponseFuncs[InstallProfileRequestType] = func() interface{} {
@@ -67,7 +72,7 @@ type RemoveProfileCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *RemoveProfileCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -92,6 +97,11 @@ type RemoveProfileResponse struct {
 	GenericResponse
 }
 
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *RemoveProfileResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
+}
+
 func init() {
 	// associate our Request Type to a function for creating a response of that type
 	newResponseFuncs[RemoveProfileRequestType] = func() interface{} {
@@ -114,7 +124,7 @@ type ProfileListCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *ProfileListCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -163,6 +173,11 @@ type ProfileListResponse struct {
 	GenericResponse
 }
 
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *ProfileListResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
+}
+
 func init() {
 	// associate our Request Type to a function for creating a response of that type
 	newResponseFuncs[ProfileListRequestType] = func() interface{} {
@@ -185,7 +200,7 @@ type InstallProvisioningProfileCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *InstallProvisioningProfileCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -210,6 +225,11 @@ type InstallProvisioningProfileResponse struct {
 	GenericResponse
 }
 
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *InstallProvisioningProfileResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
+}
+
 func init() {
 	// associate our Request Type to a function for creating a response of that type
 	newResponseFuncs[InstallProvisioningProfileRequestType] = func() interface{} {
@@ -232,7 +252,7 @@ type RemoveProvisioningProfileCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *RemoveProvisioningProfileCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -257,6 +277,11 @@ type RemoveProvisioningProfileResponse struct {
 	GenericResponse
 }
 
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *RemoveProvisioningProfileResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
+}
+
 func init() {
 	// associate our Request Type to a function for creating a response of that type
 	newResponseFuncs[RemoveProvisioningProfileRequestType] = func() interface{} {
@@ -279,7 +304,7 @@ type ProvisioningProfileListCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *ProvisioningProfileListCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -309,6 +334,11 @@ type ProvisioningProfileListItem struct {
 type ProvisioningProfileListResponse struct {
 	ProvisioningProfileList []ProvisioningProfileListItem
 	GenericResponse
+}
+
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *ProvisioningProfileListResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
 }
 
 func init() {

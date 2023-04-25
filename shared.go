@@ -18,6 +18,11 @@ type GenericCommander interface {
 	GenericCommand() *GenericCommand
 }
 
+// GenericResponsers can extract a GenericResponse.
+type GenericResponser interface {
+	GetGenericResponse() *GenericResponse
+}
+
 // NewGenericCommand creates a new generic Apple MDM command.
 func NewGenericCommand(requestType string) *GenericCommand {
 	return &GenericCommand{Command: GenericCommandPayload{RequestType: requestType}}

@@ -11,7 +11,7 @@ type RequestUnlockTokenCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *RequestUnlockTokenCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -37,6 +37,11 @@ type RequestUnlockTokenResponse struct {
 	GenericResponse
 }
 
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *RequestUnlockTokenResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
+}
+
 func init() {
 	// associate our Request Type to a function for creating a response of that type
 	newResponseFuncs[RequestUnlockTokenRequestType] = func() interface{} {
@@ -60,7 +65,7 @@ type SetRecoveryLockCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *SetRecoveryLockCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -85,6 +90,11 @@ type SetRecoveryLockResponse struct {
 	GenericResponse
 }
 
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *SetRecoveryLockResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
+}
+
 func init() {
 	// associate our Request Type to a function for creating a response of that type
 	newResponseFuncs[SetRecoveryLockRequestType] = func() interface{} {
@@ -107,7 +117,7 @@ type ClearPasscodeCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *ClearPasscodeCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -132,6 +142,11 @@ type ClearPasscodeResponse struct {
 	GenericResponse
 }
 
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *ClearPasscodeResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
+}
+
 func init() {
 	// associate our Request Type to a function for creating a response of that type
 	newResponseFuncs[ClearPasscodeRequestType] = func() interface{} {
@@ -154,7 +169,7 @@ type VerifyFirmwarePasswordCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *VerifyFirmwarePasswordCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -180,6 +195,11 @@ type VerifyFirmwarePasswordResponse struct {
 	GenericResponse
 }
 
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *VerifyFirmwarePasswordResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
+}
+
 func init() {
 	// associate our Request Type to a function for creating a response of that type
 	newResponseFuncs[VerifyFirmwarePasswordRequestType] = func() interface{} {
@@ -202,7 +222,7 @@ type VerifyRecoveryLockCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *VerifyRecoveryLockCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -226,6 +246,11 @@ func init() {
 type VerifyRecoveryLockResponse struct {
 	PasswordVerified bool
 	GenericResponse
+}
+
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *VerifyRecoveryLockResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
 }
 
 func init() {
@@ -252,7 +277,7 @@ type SetFirmwarePasswordCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *SetFirmwarePasswordCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -276,6 +301,11 @@ func init() {
 type SetFirmwarePasswordResponse struct {
 	PasswordChanged bool
 	GenericResponse
+}
+
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *SetFirmwarePasswordResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
 }
 
 func init() {

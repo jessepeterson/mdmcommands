@@ -27,7 +27,7 @@ type LOMDeviceRequestCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *LOMDeviceRequestCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -59,6 +59,11 @@ type LOMDeviceRequestResponse struct {
 	GenericResponse
 }
 
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *LOMDeviceRequestResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
+}
+
 func init() {
 	// associate our Request Type to a function for creating a response of that type
 	newResponseFuncs[LOMDeviceRequestRequestType] = func() interface{} {
@@ -74,7 +79,7 @@ type LOMSetupRequestCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *LOMSetupRequestCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -100,6 +105,11 @@ type LOMSetupRequestResponse struct {
 	SecondaryIPv6AddressList []string
 	LOMProtocolVersion       int
 	GenericResponse
+}
+
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *LOMSetupRequestResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
 }
 
 func init() {

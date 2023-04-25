@@ -18,7 +18,7 @@ type RemoveApplicationCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *RemoveApplicationCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -41,6 +41,11 @@ func init() {
 // RemoveApplicationResponse is the command result report (response) for the "RemoveApplication" Apple MDM command.
 type RemoveApplicationResponse struct {
 	GenericResponse
+}
+
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *RemoveApplicationResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
 }
 
 func init() {
@@ -87,7 +92,7 @@ type InstallApplicationCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *InstallApplicationCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -113,6 +118,11 @@ type InstallApplicationResponse struct {
 	State           *string `plist:",omitempty"`
 	RejectionReason *string `plist:",omitempty"` // possible values: AppAlreadyInstalled, AppAlreadyQueued, AppStoreDisabled, CouldNotVerifyAppID, ManagementChangeNotSupported, NotAnApp, NotSupported, PurchaseMethodNotSupported, PurchaseMethodNotSupportedInMultiUser
 	GenericResponse
+}
+
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *InstallApplicationResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
 }
 
 func init() {
@@ -145,7 +155,7 @@ type InstallEnterpriseApplicationCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *InstallEnterpriseApplicationCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -170,6 +180,11 @@ type InstallEnterpriseApplicationResponse struct {
 	GenericResponse
 }
 
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *InstallEnterpriseApplicationResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
+}
+
 func init() {
 	// associate our Request Type to a function for creating a response of that type
 	newResponseFuncs[InstallEnterpriseApplicationRequestType] = func() interface{} {
@@ -185,7 +200,7 @@ type NSExtensionMappingsCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *NSExtensionMappingsCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -217,6 +232,11 @@ type NSExtensionMappingsResponse struct {
 	GenericResponse
 }
 
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *NSExtensionMappingsResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
+}
+
 func init() {
 	// associate our Request Type to a function for creating a response of that type
 	newResponseFuncs[NSExtensionMappingsRequestType] = func() interface{} {
@@ -239,7 +259,7 @@ type ValidateApplicationsCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *ValidateApplicationsCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -262,6 +282,11 @@ func init() {
 // ValidateApplicationsResponse is the command result report (response) for the "ValidateApplications" Apple MDM command.
 type ValidateApplicationsResponse struct {
 	GenericResponse
+}
+
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *ValidateApplicationsResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
 }
 
 func init() {
@@ -288,7 +313,7 @@ type InstalledApplicationListCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *InstalledApplicationListCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -336,6 +361,11 @@ type InstalledApplicationListResponse struct {
 	GenericResponse
 }
 
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *InstalledApplicationListResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
+}
+
 func init() {
 	// associate our Request Type to a function for creating a response of that type
 	newResponseFuncs[InstalledApplicationListRequestType] = func() interface{} {
@@ -359,7 +389,7 @@ type ApplyRedemptionCodeCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *ApplyRedemptionCodeCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -382,6 +412,11 @@ func init() {
 // ApplyRedemptionCodeResponse is the command result report (response) for the "ApplyRedemptionCode" Apple MDM command.
 type ApplyRedemptionCodeResponse struct {
 	GenericResponse
+}
+
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *ApplyRedemptionCodeResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
 }
 
 func init() {
@@ -407,7 +442,7 @@ type InviteToProgramCommand struct {
 	CommandUUID string
 }
 
-// GenericCommand creates a new generic command using the values of c
+// GenericCommand creates a new generic command using the values of c.
 func (c *InviteToProgramCommand) GenericCommand() *GenericCommand {
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
@@ -431,6 +466,11 @@ func init() {
 type InviteToProgramResponse struct {
 	InvitationResult string // possible values: Acknowledged, InvalidProgramID, InvalidInvitationURL
 	GenericResponse
+}
+
+// GetGenericResponse creates a new generic command response using the values of r.
+func (r *InviteToProgramResponse) GetGenericResponse() *GenericResponse {
+	return &r.GenericResponse
 }
 
 func init() {
