@@ -10,7 +10,7 @@ const InstallProfileRequestType = "InstallProfile"
 // InstallProfilePayload is the "inner" command-specific payload for the "InstallProfile" Apple MDM command.
 type InstallProfilePayload struct {
 	Payload                      []byte
-	RequestType                  string // must be set to "InstallProfile"
+	RequestType                  string // supported value: InstallProfile
 	RequestRequiresNetworkTether *bool  `plist:",omitempty"`
 }
 
@@ -62,7 +62,7 @@ const RemoveProfileRequestType = "RemoveProfile"
 // RemoveProfilePayload is the "inner" command-specific payload for the "RemoveProfile" Apple MDM command.
 type RemoveProfilePayload struct {
 	Identifier                   string
-	RequestType                  string // must be set to "RemoveProfile"
+	RequestType                  string // supported value: RemoveProfile
 	RequestRequiresNetworkTether *bool  `plist:",omitempty"`
 }
 
@@ -114,7 +114,7 @@ const ProfileListRequestType = "ProfileList"
 // ProfileListPayload is the "inner" command-specific payload for the "ProfileList" Apple MDM command.
 type ProfileListPayload struct {
 	ManagedOnly                  *bool  `plist:",omitempty"`
-	RequestType                  string // must be set to "ProfileList"
+	RequestType                  string // supported value: ProfileList
 	RequestRequiresNetworkTether *bool  `plist:",omitempty"`
 }
 
@@ -190,7 +190,7 @@ const InstallProvisioningProfileRequestType = "InstallProvisioningProfile"
 // InstallProvisioningProfilePayload is the "inner" command-specific payload for the "InstallProvisioningProfile" Apple MDM command.
 type InstallProvisioningProfilePayload struct {
 	ProvisioningProfile          []byte
-	RequestType                  string // must be set to "InstallProvisioningProfile"
+	RequestType                  string // supported value: InstallProvisioningProfile
 	RequestRequiresNetworkTether *bool  `plist:",omitempty"`
 }
 
@@ -242,7 +242,7 @@ const RemoveProvisioningProfileRequestType = "RemoveProvisioningProfile"
 // RemoveProvisioningProfilePayload is the "inner" command-specific payload for the "RemoveProvisioningProfile" Apple MDM command.
 type RemoveProvisioningProfilePayload struct {
 	UUID                         string
-	RequestType                  string // must be set to "RemoveProvisioningProfile"
+	RequestType                  string // supported value: RemoveProvisioningProfile
 	RequestRequiresNetworkTether *bool  `plist:",omitempty"`
 }
 
@@ -294,7 +294,7 @@ const ProvisioningProfileListRequestType = "ProvisioningProfileList"
 // ProvisioningProfileListPayload is the "inner" command-specific payload for the "ProvisioningProfileList" Apple MDM command.
 type ProvisioningProfileListPayload struct {
 	ManagedOnly                  *bool  `plist:",omitempty"`
-	RequestType                  string // must be set to "ProvisioningProfileList"
+	RequestType                  string // supported value: ProvisioningProfileList
 	RequestRequiresNetworkTether *bool  `plist:",omitempty"`
 }
 

@@ -11,7 +11,7 @@ const DeviceInformationRequestType = "DeviceInformation"
 type DeviceInformationPayload struct {
 	Queries                      []string // 85 array value(s) defined in schema
 	DeviceAttestationNonce       *[]byte  `plist:",omitempty"`
-	RequestType                  string   // must be set to "DeviceInformation"
+	RequestType                  string   // supported value: DeviceInformation
 	RequestRequiresNetworkTether *bool    `plist:",omitempty"`
 }
 
@@ -95,7 +95,7 @@ type AccessibilitySettings struct {
 	IncreaseContrastEnabled    *bool
 	ReduceMotionEnabled        *bool
 	ReduceTransparencyEnabled  *bool
-	TextSize                   *int // possible values: -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11
+	TextSize                   *int // supported values: -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11
 	TouchAccommodationsEnabled *bool
 	VoiceOverEnabled           *bool
 	ZoomEnabled                *bool
@@ -125,7 +125,7 @@ type QueryResponses struct {
 	IMEI                                  *string
 	MEID                                  *string
 	ModemFirmwareVersion                  *string
-	CellularTechnology                    *int // possible values: 0, 1, 2, 3
+	CellularTechnology                    *int // supported values: 0, 1, 2, 3
 	BatteryLevel                          *float64
 	HasBattery                            *bool
 	IsSupervised                          *bool
@@ -247,7 +247,7 @@ type FirewallSettings struct {
 	StealthMode      *bool
 	Applications     *[]ApplicationsItem
 	LoggingEnabled   *bool
-	LoggingOption    *string // possible values: throttled, brief, detail
+	LoggingOption    *string // supported values: throttled, brief, detail
 }
 type FirmwarePasswordStatus struct {
 	PasswordExists *bool
@@ -261,8 +261,8 @@ type ManagementStatus struct {
 	IsActivationLockManageable *bool
 }
 type SecureBoot struct {
-	SecureBootLevel   *string   // possible values: off, medium, full, not supported
-	ExternalBootLevel *string   // possible values: allowed, disallowed, not supported
+	SecureBootLevel   *string   // supported values: off, medium, full, not supported
+	ExternalBootLevel *string   // supported values: allowed, disallowed, not supported
 	ReducedSecurity   *[]string // 3 array value(s) defined in schema
 }
 type SecurityInfo struct {
@@ -284,7 +284,7 @@ type SecurityInfo struct {
 	SecureBoot                                       *SecureBoot
 	RemoteDesktopEnabled                             *bool
 	AuthenticatedRootVolumeEnabled                   *bool
-	BootstrapTokenAllowedForAuthentication           *string // possible values: allowed, disallowed, not supported
+	BootstrapTokenAllowedForAuthentication           *string // supported values: allowed, disallowed, not supported
 	BootstrapTokenRequiredForSoftwareUpdate          *bool
 	BootstrapTokenRequiredForKernelExtensionApproval *bool
 	IsRecoveryLockEnabled                            *bool
@@ -313,7 +313,7 @@ const CertificateListRequestType = "CertificateList"
 // CertificateListPayload is the "inner" command-specific payload for the "CertificateList" Apple MDM command.
 type CertificateListPayload struct {
 	ManagedOnly                  *bool  `plist:",omitempty"`
-	RequestType                  string // must be set to "CertificateList"
+	RequestType                  string // supported value: CertificateList
 	RequestRequiresNetworkTether *bool  `plist:",omitempty"`
 }
 

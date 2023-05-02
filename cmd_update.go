@@ -10,15 +10,15 @@ const ScheduleOSUpdateRequestType = "ScheduleOSUpdate"
 type UpdatesItem struct {
 	ProductKey       *string `plist:",omitempty"`
 	ProductVersion   *string `plist:",omitempty"`
-	InstallAction    string  // possible values: Default, DownloadOnly, InstallASAP, NotifyOnly, InstallLater, InstallForceRestart
+	InstallAction    string  // supported values: Default, DownloadOnly, InstallASAP, NotifyOnly, InstallLater, InstallForceRestart
 	MaxUserDeferrals *int    `plist:",omitempty"`
-	Priority         *string `plist:",omitempty"` // possible values: Low, High
+	Priority         *string `plist:",omitempty"` // supported values: Low, High
 }
 
 // ScheduleOSUpdatePayload is the "inner" command-specific payload for the "ScheduleOSUpdate" Apple MDM command.
 type ScheduleOSUpdatePayload struct {
 	Updates                      []UpdatesItem
-	RequestType                  string // must be set to "ScheduleOSUpdate"
+	RequestType                  string // supported value: ScheduleOSUpdate
 	RequestRequiresNetworkTether *bool  `plist:",omitempty"`
 }
 
@@ -50,8 +50,8 @@ func init() {
 
 type UpdateResultsItem struct {
 	ProductKey    string
-	InstallAction string         // possible values: Error, DownloadOnly, InstallASAP, NotifyOnly, InstallLater, InstallForceRestart
-	Status        string         // possible values: Idle, Downloading, DownloadFailed, DownloadRequiresComputer, DownloadInsufficientSpace, DownloadInsufficientPower, DownloadInsufficientNetwork, Installing, InstallInsufficientSpace, InstallInsufficientPower, InstallPhoneCallInProgress, InstallFailed
+	InstallAction string         // supported values: Error, DownloadOnly, InstallASAP, NotifyOnly, InstallLater, InstallForceRestart
+	Status        string         // supported values: Idle, Downloading, DownloadFailed, DownloadRequiresComputer, DownloadInsufficientSpace, DownloadInsufficientPower, DownloadInsufficientNetwork, Installing, InstallInsufficientSpace, InstallInsufficientPower, InstallPhoneCallInProgress, InstallFailed
 	ErrorChain    *[]interface{} `plist:",omitempty"` // <any> type as single dictionary subkey
 }
 
@@ -148,7 +148,7 @@ const ScheduleOSUpdateScanRequestType = "ScheduleOSUpdateScan"
 // ScheduleOSUpdateScanPayload is the "inner" command-specific payload for the "ScheduleOSUpdateScan" Apple MDM command.
 type ScheduleOSUpdateScanPayload struct {
 	Force                        *bool  `plist:",omitempty"`
-	RequestType                  string // must be set to "ScheduleOSUpdateScan"
+	RequestType                  string // supported value: ScheduleOSUpdateScan
 	RequestRequiresNetworkTether *bool  `plist:",omitempty"`
 }
 

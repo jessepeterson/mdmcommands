@@ -55,7 +55,7 @@ type RestartDevicePayload struct {
 	RebuildKernelCache           *bool     `plist:",omitempty"`
 	KextPaths                    *[]string `plist:",omitempty"`
 	NotifyUser                   *bool     `plist:",omitempty"`
-	RequestType                  string    // must be set to "RestartDevice"
+	RequestType                  string    // supported value: RestartDevice
 	RequestRequiresNetworkTether *bool     `plist:",omitempty"`
 }
 
@@ -154,8 +154,8 @@ type EraseDevicePayload struct {
 	PreserveDataPlan             *bool   `plist:",omitempty"`
 	DisallowProximitySetup       *bool   `plist:",omitempty"`
 	PIN                          *string `plist:",omitempty"`
-	ObliterationBehavior         *string `plist:",omitempty"` // possible values: Default, DoNotObliterate, ObliterateWithWarning, Always
-	RequestType                  string  // must be set to "EraseDevice"
+	ObliterationBehavior         *string `plist:",omitempty"` // supported values: Default, DoNotObliterate, ObliterateWithWarning, Always
+	RequestType                  string  // supported value: EraseDevice
 	RequestRequiresNetworkTether *bool   `plist:",omitempty"`
 }
 
@@ -209,7 +209,7 @@ type EnableLostModePayload struct {
 	Message                      *string `plist:",omitempty"`
 	PhoneNumber                  *string `plist:",omitempty"`
 	Footnote                     *string `plist:",omitempty"`
-	RequestType                  string  // must be set to "EnableLostMode"
+	RequestType                  string  // supported value: EnableLostMode
 	RequestRequiresNetworkTether *bool   `plist:",omitempty"`
 }
 
@@ -451,7 +451,7 @@ type DeviceLockPayload struct {
 	Message                      *string `plist:",omitempty"`
 	PhoneNumber                  *string `plist:",omitempty"`
 	PIN                          *string `plist:",omitempty"`
-	RequestType                  string  // must be set to "DeviceLock"
+	RequestType                  string  // supported value: DeviceLock
 	RequestRequiresNetworkTether *bool   `plist:",omitempty"`
 }
 
@@ -504,7 +504,7 @@ const RefreshCellularPlansRequestType = "RefreshCellularPlans"
 // RefreshCellularPlansPayload is the "inner" command-specific payload for the "RefreshCellularPlans" Apple MDM command.
 type RefreshCellularPlansPayload struct {
 	ESIMServerURL                string `plist:"eSIMServerURL"`
-	RequestType                  string // must be set to "RefreshCellularPlans"
+	RequestType                  string // supported value: RefreshCellularPlans
 	RequestRequiresNetworkTether *bool  `plist:",omitempty"`
 }
 
@@ -647,7 +647,7 @@ const DeclarativeManagementRequestType = "DeclarativeManagement"
 // DeclarativeManagementPayload is the "inner" command-specific payload for the "DeclarativeManagement" Apple MDM command.
 type DeclarativeManagementPayload struct {
 	Data                         *[]byte `plist:",omitempty"`
-	RequestType                  string  // must be set to "DeclarativeManagement"
+	RequestType                  string  // supported value: DeclarativeManagement
 	RequestRequiresNetworkTether *bool   `plist:",omitempty"`
 }
 
@@ -704,11 +704,11 @@ type FileVaultUnlock struct {
 
 // RotateFileVaultKeyPayload is the "inner" command-specific payload for the "RotateFileVaultKey" Apple MDM command.
 type RotateFileVaultKeyPayload struct {
-	KeyType                      string // possible values: personal, institutional
+	KeyType                      string // supported values: personal, institutional
 	FileVaultUnlock              FileVaultUnlock
 	NewCertificate               *[]byte `plist:",omitempty"`
 	ReplyEncryptionCertificate   *[]byte `plist:",omitempty"`
-	RequestType                  string  // must be set to "RotateFileVaultKey"
+	RequestType                  string  // supported value: RotateFileVaultKey
 	RequestRequiresNetworkTether *bool   `plist:",omitempty"`
 }
 

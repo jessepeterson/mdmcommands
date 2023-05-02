@@ -10,7 +10,7 @@ type DeleteUserPayload struct {
 	UserName                     string
 	ForceDeletion                *bool  `plist:",omitempty"`
 	DeleteAllUsers               *bool  `plist:",omitempty"`
-	RequestType                  string // must be set to "DeleteUser"
+	RequestType                  string // supported value: DeleteUser
 	RequestRequiresNetworkTether *bool  `plist:",omitempty"`
 }
 
@@ -166,7 +166,7 @@ const UnlockUserAccountRequestType = "UnlockUserAccount"
 // UnlockUserAccountPayload is the "inner" command-specific payload for the "UnlockUserAccount" Apple MDM command.
 type UnlockUserAccountPayload struct {
 	UserName                     string
-	RequestType                  string // must be set to "UnlockUserAccount"
+	RequestType                  string // supported value: UnlockUserAccount
 	RequestRequiresNetworkTether *bool  `plist:",omitempty"`
 }
 
@@ -219,7 +219,7 @@ const SetAutoAdminPasswordRequestType = "SetAutoAdminPassword"
 type SetAutoAdminPasswordPayload struct {
 	GUID                         string
 	PasswordHash                 []byte `plist:"passwordHash"`
-	RequestType                  string // must be set to "SetAutoAdminPassword"
+	RequestType                  string // supported value: SetAutoAdminPassword
 	RequestRequiresNetworkTether *bool  `plist:",omitempty"`
 }
 
@@ -285,7 +285,7 @@ type AccountConfigurationPayload struct {
 	LockPrimaryAccountInfo              *bool                        `plist:",omitempty"`
 	AutoSetupAdminAccounts              *[]AutoSetupAdminAccountItem `plist:",omitempty"`
 	ManagedLocalUserShortName           *string                      `plist:",omitempty"`
-	RequestType                         string                       // must be set to "AccountConfiguration"
+	RequestType                         string                       // supported value: AccountConfiguration
 	RequestRequiresNetworkTether        *bool                        `plist:",omitempty"`
 }
 

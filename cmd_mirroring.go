@@ -56,7 +56,7 @@ type RequestMirroringPayload struct {
 	DestinationDeviceID          *string `plist:",omitempty"`
 	ScanTime                     *int    `plist:",omitempty"`
 	Password                     *string `plist:",omitempty"`
-	RequestType                  string  // must be set to "RequestMirroring"
+	RequestType                  string  // supported value: RequestMirroring
 	RequestRequiresNetworkTether *bool   `plist:",omitempty"`
 }
 

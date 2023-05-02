@@ -6,7 +6,7 @@ package mdmcommands
 const LOMDeviceRequestRequestType = "LOMDeviceRequest"
 
 type RequestListItem struct {
-	DeviceRequestType        string // possible values: PowerON, PowerOFF, Reset
+	DeviceRequestType        string // supported values: PowerON, PowerOFF, Reset
 	DeviceRequestUUID        string
 	DeviceDNSName            string
 	PrimaryIPv6AddressList   []string
@@ -17,7 +17,7 @@ type RequestListItem struct {
 // LOMDeviceRequestPayload is the "inner" command-specific payload for the "LOMDeviceRequest" Apple MDM command.
 type LOMDeviceRequestPayload struct {
 	RequestList                  []RequestListItem
-	RequestType                  string // must be set to "LOMDeviceRequest"
+	RequestType                  string // supported value: LOMDeviceRequest
 	RequestRequiresNetworkTether *bool  `plist:",omitempty"`
 }
 

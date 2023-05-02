@@ -8,7 +8,7 @@ const RemoveApplicationRequestType = "RemoveApplication"
 // RemoveApplicationPayload is the "inner" command-specific payload for the "RemoveApplication" Apple MDM command.
 type RemoveApplicationPayload struct {
 	Identifier                   string
-	RequestType                  string // must be set to "RemoveApplication"
+	RequestType                  string // supported value: RemoveApplication
 	RequestRequiresNetworkTether *bool  `plist:",omitempty"`
 }
 
@@ -58,7 +58,7 @@ func init() {
 const InstallApplicationRequestType = "InstallApplication"
 
 type Options struct {
-	PurchaseMethod *int `plist:",omitempty"` // possible values: 0, 1
+	PurchaseMethod *int `plist:",omitempty"` // supported values: 0, 1
 }
 type Attributes struct {
 	VPNUUID                                *string   `plist:",omitempty"`
@@ -76,13 +76,13 @@ type InstallApplicationPayload struct {
 	Identifier                   *string     `plist:",omitempty"`
 	Options                      *Options    `plist:",omitempty"`
 	ManifestURL                  *string     `plist:",omitempty"`
-	ManagementFlags              *int        `plist:",omitempty"` // possible values: 1, 4, 5
+	ManagementFlags              *int        `plist:",omitempty"` // supported values: 1, 4, 5
 	Configuration                interface{} `plist:",omitempty"` // <any> type as single dictionary subkey
 	Attributes                   *Attributes `plist:",omitempty"`
-	ChangeManagementState        *string     `plist:",omitempty"` // possible values: Managed
+	ChangeManagementState        *string     `plist:",omitempty"` // supported value: Managed
 	InstallAsManaged             *bool       `plist:",omitempty"`
 	IOSApp                       *bool       `plist:"iOSApp,omitempty"`
-	RequestType                  string      // must be set to "InstallApplication"
+	RequestType                  string      // supported value: InstallApplication
 	RequestRequiresNetworkTether *bool       `plist:",omitempty"`
 }
 
@@ -116,7 +116,7 @@ func init() {
 type InstallApplicationResponse struct {
 	Identifier      *string `plist:",omitempty"`
 	State           *string `plist:",omitempty"`
-	RejectionReason *string `plist:",omitempty"` // possible values: AppAlreadyInstalled, AppAlreadyQueued, AppStoreDisabled, CouldNotVerifyAppID, ManagementChangeNotSupported, NotAnApp, NotSupported, PurchaseMethodNotSupported, PurchaseMethodNotSupportedInMultiUser
+	RejectionReason *string `plist:",omitempty"` // supported values: AppAlreadyInstalled, AppAlreadyQueued, AppStoreDisabled, CouldNotVerifyAppID, ManagementChangeNotSupported, NotAnApp, NotSupported, PurchaseMethodNotSupported, PurchaseMethodNotSupportedInMultiUser
 	GenericResponse
 }
 
@@ -141,11 +141,11 @@ type InstallEnterpriseApplicationPayload struct {
 	ManifestURLPinningCerts        *[][]byte   `plist:",omitempty"`
 	PinningRevocationCheckRequired *bool       `plist:",omitempty"`
 	InstallAsManaged               *bool       `plist:",omitempty"`
-	ManagementFlags                *int        `plist:",omitempty"` // possible values: 1
+	ManagementFlags                *int        `plist:",omitempty"` // supported value: 1
 	Configuration                  interface{} `plist:",omitempty"` // <any> type as single dictionary subkey
-	ChangeManagementState          *string     `plist:",omitempty"` // possible values: Managed
+	ChangeManagementState          *string     `plist:",omitempty"` // supported value: Managed
 	IOSApp                         *bool       `plist:"iOSApp,omitempty"`
-	RequestType                    string      // must be set to "InstallEnterpriseApplication"
+	RequestType                    string      // supported value: InstallEnterpriseApplication
 	RequestRequiresNetworkTether   *bool       `plist:",omitempty"`
 }
 
@@ -249,7 +249,7 @@ const ValidateApplicationsRequestType = "ValidateApplications"
 // ValidateApplicationsPayload is the "inner" command-specific payload for the "ValidateApplications" Apple MDM command.
 type ValidateApplicationsPayload struct {
 	Identifiers                  *[]string `plist:",omitempty"`
-	RequestType                  string    // must be set to "ValidateApplications"
+	RequestType                  string    // supported value: ValidateApplications
 	RequestRequiresNetworkTether *bool     `plist:",omitempty"`
 }
 
@@ -302,8 +302,8 @@ const InstalledApplicationListRequestType = "InstalledApplicationList"
 type InstalledApplicationListPayload struct {
 	Identifiers                  *[]string `plist:",omitempty"`
 	ManagedAppsOnly              *bool     `plist:",omitempty"`
-	Items                        *[]string `plist:",omitempty"` // possible values: AdHocCodeSigned, AppStoreVendable, BetaApp, BundleSize, DeviceBasedVPP, DynamicSize, ExternalVersionIdentifier, HasUpdateAvailable, Identifier, Installing, IsAppClip, IsValidated, Name, ShortVersion, Version
-	RequestType                  string    // must be set to "InstalledApplicationList"
+	Items                        *[]string `plist:",omitempty"` // supported values: AdHocCodeSigned, AppStoreVendable, BetaApp, BundleSize, DeviceBasedVPP, DynamicSize, ExternalVersionIdentifier, HasUpdateAvailable, Identifier, Installing, IsAppClip, IsValidated, Name, ShortVersion, Version
+	RequestType                  string    // supported value: InstalledApplicationList
 	RequestRequiresNetworkTether *bool     `plist:",omitempty"`
 }
 
@@ -379,7 +379,7 @@ const ApplyRedemptionCodeRequestType = "ApplyRedemptionCode"
 type ApplyRedemptionCodePayload struct {
 	Identifier                   string
 	RedemptionCode               string
-	RequestType                  string // must be set to "ApplyRedemptionCode"
+	RequestType                  string // supported value: ApplyRedemptionCode
 	RequestRequiresNetworkTether *bool  `plist:",omitempty"`
 }
 
@@ -430,9 +430,9 @@ const InviteToProgramRequestType = "InviteToProgram"
 
 // InviteToProgramPayload is the "inner" command-specific payload for the "InviteToProgram" Apple MDM command.
 type InviteToProgramPayload struct {
-	ProgramID                    string // possible values: com.apple.cloudvpp
+	ProgramID                    string // supported value: com.apple.cloudvpp
 	InvitationURL                string
-	RequestType                  string // must be set to "InviteToProgram"
+	RequestType                  string // supported value: InviteToProgram
 	RequestRequiresNetworkTether *bool  `plist:",omitempty"`
 }
 
@@ -464,7 +464,7 @@ func init() {
 
 // InviteToProgramResponse is the command result report (response) for the "InviteToProgram" Apple MDM command.
 type InviteToProgramResponse struct {
-	InvitationResult string // possible values: Acknowledged, InvalidProgramID, InvalidInvitationURL
+	InvitationResult string // supported values: Acknowledged, InvalidProgramID, InvalidInvitationURL
 	GenericResponse
 }
 

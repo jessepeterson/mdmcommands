@@ -3,7 +3,7 @@ package mdmcommands
 
 // GenericCommandPayload is the "inner" generic payload for Apple MDM commands.
 type GenericCommandPayload struct {
-	RequestType                  string // must be set to MDM command name
+	RequestType                  string // supported value: the MDM command name
 	RequestRequiresNetworkTether *bool  `plist:",omitempty"`
 }
 
@@ -70,7 +70,7 @@ type Enrollment struct {
 // GenericResponse represents the common MDM command response fields.
 type GenericResponse struct {
 	CommandUUID  string
-	Status       string // possible values: Acknowledged, Error, CommandFormatError, Idle, NotNow
+	Status       string // supported values: Acknowledged, Error, CommandFormatError, Idle, NotNow
 	NotOnConsole bool
 	ErrorChain   *[]ErrorChain `plist:",omitempty"`
 	Enrollment

@@ -55,7 +55,7 @@ const SetRecoveryLockRequestType = "SetRecoveryLock"
 type SetRecoveryLockPayload struct {
 	CurrentPassword              *string `plist:",omitempty"`
 	NewPassword                  string
-	RequestType                  string // must be set to "SetRecoveryLock"
+	RequestType                  string // supported value: SetRecoveryLock
 	RequestRequiresNetworkTether *bool  `plist:",omitempty"`
 }
 
@@ -107,7 +107,7 @@ const ClearPasscodeRequestType = "ClearPasscode"
 // ClearPasscodePayload is the "inner" command-specific payload for the "ClearPasscode" Apple MDM command.
 type ClearPasscodePayload struct {
 	UnlockToken                  []byte
-	RequestType                  string // must be set to "ClearPasscode"
+	RequestType                  string // supported value: ClearPasscode
 	RequestRequiresNetworkTether *bool  `plist:",omitempty"`
 }
 
@@ -159,7 +159,7 @@ const VerifyFirmwarePasswordRequestType = "VerifyFirmwarePassword"
 // VerifyFirmwarePasswordPayload is the "inner" command-specific payload for the "VerifyFirmwarePassword" Apple MDM command.
 type VerifyFirmwarePasswordPayload struct {
 	Password                     string
-	RequestType                  string // must be set to "VerifyFirmwarePassword"
+	RequestType                  string // supported value: VerifyFirmwarePassword
 	RequestRequiresNetworkTether *bool  `plist:",omitempty"`
 }
 
@@ -212,7 +212,7 @@ const VerifyRecoveryLockRequestType = "VerifyRecoveryLock"
 // VerifyRecoveryLockPayload is the "inner" command-specific payload for the "VerifyRecoveryLock" Apple MDM command.
 type VerifyRecoveryLockPayload struct {
 	Password                     string
-	RequestType                  string // must be set to "VerifyRecoveryLock"
+	RequestType                  string // supported value: VerifyRecoveryLock
 	RequestRequiresNetworkTether *bool  `plist:",omitempty"`
 }
 
@@ -267,7 +267,7 @@ type SetFirmwarePasswordPayload struct {
 	CurrentPassword              *string `plist:",omitempty"`
 	NewPassword                  string
 	AllowOroms                   *bool  `plist:",omitempty"`
-	RequestType                  string // must be set to "SetFirmwarePassword"
+	RequestType                  string // supported value: SetFirmwarePassword
 	RequestRequiresNetworkTether *bool  `plist:",omitempty"`
 }
 
