@@ -40,6 +40,12 @@ func NewCommand(requestType string) interface{} {
 	return newCmdFn()
 }
 
+// ValidRequestType checks that we are able to create a new command from requestType.
+func ValidRequestType(requestType string) bool {
+	_, ok := newCommandFuncs[requestType]
+	return ok
+}
+
 // NewResponse creates a new command response from requestType.
 func NewResponse(requestType string) interface{} {
 	newRespFn, ok := newResponseFuncs[requestType]
