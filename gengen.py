@@ -85,8 +85,8 @@ groups = {
         "application.invitetoprogram.yaml",
         # "application.managed.list.yaml", # parse/gen problems
         # "managed.application.attributes.yaml", # parse/gen problems
-        # "managed.application.configuration.yaml", # parse/gen problems
-        # "managed.application.feedback.yaml", # parse/gen problems
+        "managed.application.configuration.yaml",
+        "managed.application.feedback.yaml",
     ],
 }
 
