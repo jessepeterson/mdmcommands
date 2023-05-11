@@ -29,14 +29,17 @@ func (c *InstallProfileCommand) GenericCommand() *GenericCommand {
 }
 
 // NewInstallProfileCommand creates a new "InstallProfile" Apple MDM command.
-func NewInstallProfileCommand() *InstallProfileCommand {
-	return &InstallProfileCommand{Command: InstallProfilePayload{RequestType: InstallProfileRequestType}}
+func NewInstallProfileCommand(uuid string) *InstallProfileCommand {
+	return &InstallProfileCommand{
+		Command:     InstallProfilePayload{RequestType: InstallProfileRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[InstallProfileRequestType] = func() interface{} {
-		return NewInstallProfileCommand()
+	newCommandFuncs[InstallProfileRequestType] = func(uuid string) interface{} {
+		return NewInstallProfileCommand(uuid)
 	}
 }
 
@@ -81,14 +84,17 @@ func (c *RemoveProfileCommand) GenericCommand() *GenericCommand {
 }
 
 // NewRemoveProfileCommand creates a new "RemoveProfile" Apple MDM command.
-func NewRemoveProfileCommand() *RemoveProfileCommand {
-	return &RemoveProfileCommand{Command: RemoveProfilePayload{RequestType: RemoveProfileRequestType}}
+func NewRemoveProfileCommand(uuid string) *RemoveProfileCommand {
+	return &RemoveProfileCommand{
+		Command:     RemoveProfilePayload{RequestType: RemoveProfileRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[RemoveProfileRequestType] = func() interface{} {
-		return NewRemoveProfileCommand()
+	newCommandFuncs[RemoveProfileRequestType] = func(uuid string) interface{} {
+		return NewRemoveProfileCommand(uuid)
 	}
 }
 
@@ -133,14 +139,17 @@ func (c *ProfileListCommand) GenericCommand() *GenericCommand {
 }
 
 // NewProfileListCommand creates a new "ProfileList" Apple MDM command.
-func NewProfileListCommand() *ProfileListCommand {
-	return &ProfileListCommand{Command: ProfileListPayload{RequestType: ProfileListRequestType}}
+func NewProfileListCommand(uuid string) *ProfileListCommand {
+	return &ProfileListCommand{
+		Command:     ProfileListPayload{RequestType: ProfileListRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[ProfileListRequestType] = func() interface{} {
-		return NewProfileListCommand()
+	newCommandFuncs[ProfileListRequestType] = func(uuid string) interface{} {
+		return NewProfileListCommand(uuid)
 	}
 }
 
@@ -209,14 +218,17 @@ func (c *InstallProvisioningProfileCommand) GenericCommand() *GenericCommand {
 }
 
 // NewInstallProvisioningProfileCommand creates a new "InstallProvisioningProfile" Apple MDM command.
-func NewInstallProvisioningProfileCommand() *InstallProvisioningProfileCommand {
-	return &InstallProvisioningProfileCommand{Command: InstallProvisioningProfilePayload{RequestType: InstallProvisioningProfileRequestType}}
+func NewInstallProvisioningProfileCommand(uuid string) *InstallProvisioningProfileCommand {
+	return &InstallProvisioningProfileCommand{
+		Command:     InstallProvisioningProfilePayload{RequestType: InstallProvisioningProfileRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[InstallProvisioningProfileRequestType] = func() interface{} {
-		return NewInstallProvisioningProfileCommand()
+	newCommandFuncs[InstallProvisioningProfileRequestType] = func(uuid string) interface{} {
+		return NewInstallProvisioningProfileCommand(uuid)
 	}
 }
 
@@ -261,14 +273,17 @@ func (c *RemoveProvisioningProfileCommand) GenericCommand() *GenericCommand {
 }
 
 // NewRemoveProvisioningProfileCommand creates a new "RemoveProvisioningProfile" Apple MDM command.
-func NewRemoveProvisioningProfileCommand() *RemoveProvisioningProfileCommand {
-	return &RemoveProvisioningProfileCommand{Command: RemoveProvisioningProfilePayload{RequestType: RemoveProvisioningProfileRequestType}}
+func NewRemoveProvisioningProfileCommand(uuid string) *RemoveProvisioningProfileCommand {
+	return &RemoveProvisioningProfileCommand{
+		Command:     RemoveProvisioningProfilePayload{RequestType: RemoveProvisioningProfileRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[RemoveProvisioningProfileRequestType] = func() interface{} {
-		return NewRemoveProvisioningProfileCommand()
+	newCommandFuncs[RemoveProvisioningProfileRequestType] = func(uuid string) interface{} {
+		return NewRemoveProvisioningProfileCommand(uuid)
 	}
 }
 
@@ -313,14 +328,17 @@ func (c *ProvisioningProfileListCommand) GenericCommand() *GenericCommand {
 }
 
 // NewProvisioningProfileListCommand creates a new "ProvisioningProfileList" Apple MDM command.
-func NewProvisioningProfileListCommand() *ProvisioningProfileListCommand {
-	return &ProvisioningProfileListCommand{Command: ProvisioningProfileListPayload{RequestType: ProvisioningProfileListRequestType}}
+func NewProvisioningProfileListCommand(uuid string) *ProvisioningProfileListCommand {
+	return &ProvisioningProfileListCommand{
+		Command:     ProvisioningProfileListPayload{RequestType: ProvisioningProfileListRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[ProvisioningProfileListRequestType] = func() interface{} {
-		return NewProvisioningProfileListCommand()
+	newCommandFuncs[ProvisioningProfileListRequestType] = func(uuid string) interface{} {
+		return NewProvisioningProfileListCommand(uuid)
 	}
 }
 

@@ -29,14 +29,17 @@ func (c *DeleteUserCommand) GenericCommand() *GenericCommand {
 }
 
 // NewDeleteUserCommand creates a new "DeleteUser" Apple MDM command.
-func NewDeleteUserCommand() *DeleteUserCommand {
-	return &DeleteUserCommand{Command: DeleteUserPayload{RequestType: DeleteUserRequestType}}
+func NewDeleteUserCommand(uuid string) *DeleteUserCommand {
+	return &DeleteUserCommand{
+		Command:     DeleteUserPayload{RequestType: DeleteUserRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[DeleteUserRequestType] = func() interface{} {
-		return NewDeleteUserCommand()
+	newCommandFuncs[DeleteUserRequestType] = func(uuid string) interface{} {
+		return NewDeleteUserCommand(uuid)
 	}
 }
 
@@ -74,14 +77,17 @@ func (c *UserListCommand) GenericCommand() *GenericCommand {
 }
 
 // NewUserListCommand creates a new "UserList" Apple MDM command.
-func NewUserListCommand() *UserListCommand {
-	return &UserListCommand{Command: GenericCommandPayload{RequestType: UserListRequestType}}
+func NewUserListCommand(uuid string) *UserListCommand {
+	return &UserListCommand{
+		Command:     GenericCommandPayload{RequestType: UserListRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[UserListRequestType] = func() interface{} {
-		return NewUserListCommand()
+	newCommandFuncs[UserListRequestType] = func(uuid string) interface{} {
+		return NewUserListCommand(uuid)
 	}
 }
 
@@ -133,14 +139,17 @@ func (c *LogOutUserCommand) GenericCommand() *GenericCommand {
 }
 
 // NewLogOutUserCommand creates a new "LogOutUser" Apple MDM command.
-func NewLogOutUserCommand() *LogOutUserCommand {
-	return &LogOutUserCommand{Command: GenericCommandPayload{RequestType: LogOutUserRequestType}}
+func NewLogOutUserCommand(uuid string) *LogOutUserCommand {
+	return &LogOutUserCommand{
+		Command:     GenericCommandPayload{RequestType: LogOutUserRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[LogOutUserRequestType] = func() interface{} {
-		return NewLogOutUserCommand()
+	newCommandFuncs[LogOutUserRequestType] = func(uuid string) interface{} {
+		return NewLogOutUserCommand(uuid)
 	}
 }
 
@@ -185,14 +194,17 @@ func (c *UnlockUserAccountCommand) GenericCommand() *GenericCommand {
 }
 
 // NewUnlockUserAccountCommand creates a new "UnlockUserAccount" Apple MDM command.
-func NewUnlockUserAccountCommand() *UnlockUserAccountCommand {
-	return &UnlockUserAccountCommand{Command: UnlockUserAccountPayload{RequestType: UnlockUserAccountRequestType}}
+func NewUnlockUserAccountCommand(uuid string) *UnlockUserAccountCommand {
+	return &UnlockUserAccountCommand{
+		Command:     UnlockUserAccountPayload{RequestType: UnlockUserAccountRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[UnlockUserAccountRequestType] = func() interface{} {
-		return NewUnlockUserAccountCommand()
+	newCommandFuncs[UnlockUserAccountRequestType] = func(uuid string) interface{} {
+		return NewUnlockUserAccountCommand(uuid)
 	}
 }
 
@@ -238,14 +250,17 @@ func (c *SetAutoAdminPasswordCommand) GenericCommand() *GenericCommand {
 }
 
 // NewSetAutoAdminPasswordCommand creates a new "SetAutoAdminPassword" Apple MDM command.
-func NewSetAutoAdminPasswordCommand() *SetAutoAdminPasswordCommand {
-	return &SetAutoAdminPasswordCommand{Command: SetAutoAdminPasswordPayload{RequestType: SetAutoAdminPasswordRequestType}}
+func NewSetAutoAdminPasswordCommand(uuid string) *SetAutoAdminPasswordCommand {
+	return &SetAutoAdminPasswordCommand{
+		Command:     SetAutoAdminPasswordPayload{RequestType: SetAutoAdminPasswordRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[SetAutoAdminPasswordRequestType] = func() interface{} {
-		return NewSetAutoAdminPasswordCommand()
+	newCommandFuncs[SetAutoAdminPasswordRequestType] = func(uuid string) interface{} {
+		return NewSetAutoAdminPasswordCommand(uuid)
 	}
 }
 
@@ -304,14 +319,17 @@ func (c *AccountConfigurationCommand) GenericCommand() *GenericCommand {
 }
 
 // NewAccountConfigurationCommand creates a new "AccountConfiguration" Apple MDM command.
-func NewAccountConfigurationCommand() *AccountConfigurationCommand {
-	return &AccountConfigurationCommand{Command: AccountConfigurationPayload{RequestType: AccountConfigurationRequestType}}
+func NewAccountConfigurationCommand(uuid string) *AccountConfigurationCommand {
+	return &AccountConfigurationCommand{
+		Command:     AccountConfigurationPayload{RequestType: AccountConfigurationRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[AccountConfigurationRequestType] = func() interface{} {
-		return NewAccountConfigurationCommand()
+	newCommandFuncs[AccountConfigurationRequestType] = func(uuid string) interface{} {
+		return NewAccountConfigurationCommand(uuid)
 	}
 }
 

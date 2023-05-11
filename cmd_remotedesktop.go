@@ -20,14 +20,17 @@ func (c *EnableRemoteDesktopCommand) GenericCommand() *GenericCommand {
 }
 
 // NewEnableRemoteDesktopCommand creates a new "EnableRemoteDesktop" Apple MDM command.
-func NewEnableRemoteDesktopCommand() *EnableRemoteDesktopCommand {
-	return &EnableRemoteDesktopCommand{Command: GenericCommandPayload{RequestType: EnableRemoteDesktopRequestType}}
+func NewEnableRemoteDesktopCommand(uuid string) *EnableRemoteDesktopCommand {
+	return &EnableRemoteDesktopCommand{
+		Command:     GenericCommandPayload{RequestType: EnableRemoteDesktopRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[EnableRemoteDesktopRequestType] = func() interface{} {
-		return NewEnableRemoteDesktopCommand()
+	newCommandFuncs[EnableRemoteDesktopRequestType] = func(uuid string) interface{} {
+		return NewEnableRemoteDesktopCommand(uuid)
 	}
 }
 
@@ -65,14 +68,17 @@ func (c *DisableRemoteDesktopCommand) GenericCommand() *GenericCommand {
 }
 
 // NewDisableRemoteDesktopCommand creates a new "DisableRemoteDesktop" Apple MDM command.
-func NewDisableRemoteDesktopCommand() *DisableRemoteDesktopCommand {
-	return &DisableRemoteDesktopCommand{Command: GenericCommandPayload{RequestType: DisableRemoteDesktopRequestType}}
+func NewDisableRemoteDesktopCommand(uuid string) *DisableRemoteDesktopCommand {
+	return &DisableRemoteDesktopCommand{
+		Command:     GenericCommandPayload{RequestType: DisableRemoteDesktopRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[DisableRemoteDesktopRequestType] = func() interface{} {
-		return NewDisableRemoteDesktopCommand()
+	newCommandFuncs[DisableRemoteDesktopRequestType] = func(uuid string) interface{} {
+		return NewDisableRemoteDesktopCommand(uuid)
 	}
 }
 

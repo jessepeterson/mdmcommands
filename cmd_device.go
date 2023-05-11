@@ -20,14 +20,17 @@ func (c *ShutDownDeviceCommand) GenericCommand() *GenericCommand {
 }
 
 // NewShutDownDeviceCommand creates a new "ShutDownDevice" Apple MDM command.
-func NewShutDownDeviceCommand() *ShutDownDeviceCommand {
-	return &ShutDownDeviceCommand{Command: GenericCommandPayload{RequestType: ShutDownDeviceRequestType}}
+func NewShutDownDeviceCommand(uuid string) *ShutDownDeviceCommand {
+	return &ShutDownDeviceCommand{
+		Command:     GenericCommandPayload{RequestType: ShutDownDeviceRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[ShutDownDeviceRequestType] = func() interface{} {
-		return NewShutDownDeviceCommand()
+	newCommandFuncs[ShutDownDeviceRequestType] = func(uuid string) interface{} {
+		return NewShutDownDeviceCommand(uuid)
 	}
 }
 
@@ -74,14 +77,17 @@ func (c *RestartDeviceCommand) GenericCommand() *GenericCommand {
 }
 
 // NewRestartDeviceCommand creates a new "RestartDevice" Apple MDM command.
-func NewRestartDeviceCommand() *RestartDeviceCommand {
-	return &RestartDeviceCommand{Command: RestartDevicePayload{RequestType: RestartDeviceRequestType}}
+func NewRestartDeviceCommand(uuid string) *RestartDeviceCommand {
+	return &RestartDeviceCommand{
+		Command:     RestartDevicePayload{RequestType: RestartDeviceRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[RestartDeviceRequestType] = func() interface{} {
-		return NewRestartDeviceCommand()
+	newCommandFuncs[RestartDeviceRequestType] = func(uuid string) interface{} {
+		return NewRestartDeviceCommand(uuid)
 	}
 }
 
@@ -119,14 +125,17 @@ func (c *DeviceConfiguredCommand) GenericCommand() *GenericCommand {
 }
 
 // NewDeviceConfiguredCommand creates a new "DeviceConfigured" Apple MDM command.
-func NewDeviceConfiguredCommand() *DeviceConfiguredCommand {
-	return &DeviceConfiguredCommand{Command: GenericCommandPayload{RequestType: DeviceConfiguredRequestType}}
+func NewDeviceConfiguredCommand(uuid string) *DeviceConfiguredCommand {
+	return &DeviceConfiguredCommand{
+		Command:     GenericCommandPayload{RequestType: DeviceConfiguredRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[DeviceConfiguredRequestType] = func() interface{} {
-		return NewDeviceConfiguredCommand()
+	newCommandFuncs[DeviceConfiguredRequestType] = func(uuid string) interface{} {
+		return NewDeviceConfiguredCommand(uuid)
 	}
 }
 
@@ -174,14 +183,17 @@ func (c *EraseDeviceCommand) GenericCommand() *GenericCommand {
 }
 
 // NewEraseDeviceCommand creates a new "EraseDevice" Apple MDM command.
-func NewEraseDeviceCommand() *EraseDeviceCommand {
-	return &EraseDeviceCommand{Command: EraseDevicePayload{RequestType: EraseDeviceRequestType}}
+func NewEraseDeviceCommand(uuid string) *EraseDeviceCommand {
+	return &EraseDeviceCommand{
+		Command:     EraseDevicePayload{RequestType: EraseDeviceRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[EraseDeviceRequestType] = func() interface{} {
-		return NewEraseDeviceCommand()
+	newCommandFuncs[EraseDeviceRequestType] = func(uuid string) interface{} {
+		return NewEraseDeviceCommand(uuid)
 	}
 }
 
@@ -228,14 +240,17 @@ func (c *EnableLostModeCommand) GenericCommand() *GenericCommand {
 }
 
 // NewEnableLostModeCommand creates a new "EnableLostMode" Apple MDM command.
-func NewEnableLostModeCommand() *EnableLostModeCommand {
-	return &EnableLostModeCommand{Command: EnableLostModePayload{RequestType: EnableLostModeRequestType}}
+func NewEnableLostModeCommand(uuid string) *EnableLostModeCommand {
+	return &EnableLostModeCommand{
+		Command:     EnableLostModePayload{RequestType: EnableLostModeRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[EnableLostModeRequestType] = func() interface{} {
-		return NewEnableLostModeCommand()
+	newCommandFuncs[EnableLostModeRequestType] = func(uuid string) interface{} {
+		return NewEnableLostModeCommand(uuid)
 	}
 }
 
@@ -273,14 +288,17 @@ func (c *DisableLostModeCommand) GenericCommand() *GenericCommand {
 }
 
 // NewDisableLostModeCommand creates a new "DisableLostMode" Apple MDM command.
-func NewDisableLostModeCommand() *DisableLostModeCommand {
-	return &DisableLostModeCommand{Command: GenericCommandPayload{RequestType: DisableLostModeRequestType}}
+func NewDisableLostModeCommand(uuid string) *DisableLostModeCommand {
+	return &DisableLostModeCommand{
+		Command:     GenericCommandPayload{RequestType: DisableLostModeRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[DisableLostModeRequestType] = func() interface{} {
-		return NewDisableLostModeCommand()
+	newCommandFuncs[DisableLostModeRequestType] = func(uuid string) interface{} {
+		return NewDisableLostModeCommand(uuid)
 	}
 }
 
@@ -318,14 +336,17 @@ func (c *DeviceLocationCommand) GenericCommand() *GenericCommand {
 }
 
 // NewDeviceLocationCommand creates a new "DeviceLocation" Apple MDM command.
-func NewDeviceLocationCommand() *DeviceLocationCommand {
-	return &DeviceLocationCommand{Command: GenericCommandPayload{RequestType: DeviceLocationRequestType}}
+func NewDeviceLocationCommand(uuid string) *DeviceLocationCommand {
+	return &DeviceLocationCommand{
+		Command:     GenericCommandPayload{RequestType: DeviceLocationRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[DeviceLocationRequestType] = func() interface{} {
-		return NewDeviceLocationCommand()
+	newCommandFuncs[DeviceLocationRequestType] = func(uuid string) interface{} {
+		return NewDeviceLocationCommand(uuid)
 	}
 }
 
@@ -371,14 +392,17 @@ func (c *PlayLostModeSoundCommand) GenericCommand() *GenericCommand {
 }
 
 // NewPlayLostModeSoundCommand creates a new "PlayLostModeSound" Apple MDM command.
-func NewPlayLostModeSoundCommand() *PlayLostModeSoundCommand {
-	return &PlayLostModeSoundCommand{Command: GenericCommandPayload{RequestType: PlayLostModeSoundRequestType}}
+func NewPlayLostModeSoundCommand(uuid string) *PlayLostModeSoundCommand {
+	return &PlayLostModeSoundCommand{
+		Command:     GenericCommandPayload{RequestType: PlayLostModeSoundRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[PlayLostModeSoundRequestType] = func() interface{} {
-		return NewPlayLostModeSoundCommand()
+	newCommandFuncs[PlayLostModeSoundRequestType] = func(uuid string) interface{} {
+		return NewPlayLostModeSoundCommand(uuid)
 	}
 }
 
@@ -416,14 +440,17 @@ func (c *ClearRestrictionsPasswordCommand) GenericCommand() *GenericCommand {
 }
 
 // NewClearRestrictionsPasswordCommand creates a new "ClearRestrictionsPassword" Apple MDM command.
-func NewClearRestrictionsPasswordCommand() *ClearRestrictionsPasswordCommand {
-	return &ClearRestrictionsPasswordCommand{Command: GenericCommandPayload{RequestType: ClearRestrictionsPasswordRequestType}}
+func NewClearRestrictionsPasswordCommand(uuid string) *ClearRestrictionsPasswordCommand {
+	return &ClearRestrictionsPasswordCommand{
+		Command:     GenericCommandPayload{RequestType: ClearRestrictionsPasswordRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[ClearRestrictionsPasswordRequestType] = func() interface{} {
-		return NewClearRestrictionsPasswordCommand()
+	newCommandFuncs[ClearRestrictionsPasswordRequestType] = func(uuid string) interface{} {
+		return NewClearRestrictionsPasswordCommand(uuid)
 	}
 }
 
@@ -470,14 +497,17 @@ func (c *DeviceLockCommand) GenericCommand() *GenericCommand {
 }
 
 // NewDeviceLockCommand creates a new "DeviceLock" Apple MDM command.
-func NewDeviceLockCommand() *DeviceLockCommand {
-	return &DeviceLockCommand{Command: DeviceLockPayload{RequestType: DeviceLockRequestType}}
+func NewDeviceLockCommand(uuid string) *DeviceLockCommand {
+	return &DeviceLockCommand{
+		Command:     DeviceLockPayload{RequestType: DeviceLockRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[DeviceLockRequestType] = func() interface{} {
-		return NewDeviceLockCommand()
+	newCommandFuncs[DeviceLockRequestType] = func(uuid string) interface{} {
+		return NewDeviceLockCommand(uuid)
 	}
 }
 
@@ -523,14 +553,17 @@ func (c *RefreshCellularPlansCommand) GenericCommand() *GenericCommand {
 }
 
 // NewRefreshCellularPlansCommand creates a new "RefreshCellularPlans" Apple MDM command.
-func NewRefreshCellularPlansCommand() *RefreshCellularPlansCommand {
-	return &RefreshCellularPlansCommand{Command: RefreshCellularPlansPayload{RequestType: RefreshCellularPlansRequestType}}
+func NewRefreshCellularPlansCommand(uuid string) *RefreshCellularPlansCommand {
+	return &RefreshCellularPlansCommand{
+		Command:     RefreshCellularPlansPayload{RequestType: RefreshCellularPlansRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[RefreshCellularPlansRequestType] = func() interface{} {
-		return NewRefreshCellularPlansCommand()
+	newCommandFuncs[RefreshCellularPlansRequestType] = func(uuid string) interface{} {
+		return NewRefreshCellularPlansCommand(uuid)
 	}
 }
 
@@ -568,14 +601,17 @@ func (c *ActivationLockBypassCodeCommand) GenericCommand() *GenericCommand {
 }
 
 // NewActivationLockBypassCodeCommand creates a new "ActivationLockBypassCode" Apple MDM command.
-func NewActivationLockBypassCodeCommand() *ActivationLockBypassCodeCommand {
-	return &ActivationLockBypassCodeCommand{Command: GenericCommandPayload{RequestType: ActivationLockBypassCodeRequestType}}
+func NewActivationLockBypassCodeCommand(uuid string) *ActivationLockBypassCodeCommand {
+	return &ActivationLockBypassCodeCommand{
+		Command:     GenericCommandPayload{RequestType: ActivationLockBypassCodeRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[ActivationLockBypassCodeRequestType] = func() interface{} {
-		return NewActivationLockBypassCodeCommand()
+	newCommandFuncs[ActivationLockBypassCodeRequestType] = func(uuid string) interface{} {
+		return NewActivationLockBypassCodeCommand(uuid)
 	}
 }
 
@@ -614,14 +650,17 @@ func (c *ClearActivationLockBypassCodeCommand) GenericCommand() *GenericCommand 
 }
 
 // NewClearActivationLockBypassCodeCommand creates a new "ClearActivationLockBypassCode" Apple MDM command.
-func NewClearActivationLockBypassCodeCommand() *ClearActivationLockBypassCodeCommand {
-	return &ClearActivationLockBypassCodeCommand{Command: GenericCommandPayload{RequestType: ClearActivationLockBypassCodeRequestType}}
+func NewClearActivationLockBypassCodeCommand(uuid string) *ClearActivationLockBypassCodeCommand {
+	return &ClearActivationLockBypassCodeCommand{
+		Command:     GenericCommandPayload{RequestType: ClearActivationLockBypassCodeRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[ClearActivationLockBypassCodeRequestType] = func() interface{} {
-		return NewClearActivationLockBypassCodeCommand()
+	newCommandFuncs[ClearActivationLockBypassCodeRequestType] = func(uuid string) interface{} {
+		return NewClearActivationLockBypassCodeCommand(uuid)
 	}
 }
 
@@ -666,14 +705,17 @@ func (c *DeclarativeManagementCommand) GenericCommand() *GenericCommand {
 }
 
 // NewDeclarativeManagementCommand creates a new "DeclarativeManagement" Apple MDM command.
-func NewDeclarativeManagementCommand() *DeclarativeManagementCommand {
-	return &DeclarativeManagementCommand{Command: DeclarativeManagementPayload{RequestType: DeclarativeManagementRequestType}}
+func NewDeclarativeManagementCommand(uuid string) *DeclarativeManagementCommand {
+	return &DeclarativeManagementCommand{
+		Command:     DeclarativeManagementPayload{RequestType: DeclarativeManagementRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[DeclarativeManagementRequestType] = func() interface{} {
-		return NewDeclarativeManagementCommand()
+	newCommandFuncs[DeclarativeManagementRequestType] = func(uuid string) interface{} {
+		return NewDeclarativeManagementCommand(uuid)
 	}
 }
 
@@ -727,14 +769,17 @@ func (c *RotateFileVaultKeyCommand) GenericCommand() *GenericCommand {
 }
 
 // NewRotateFileVaultKeyCommand creates a new "RotateFileVaultKey" Apple MDM command.
-func NewRotateFileVaultKeyCommand() *RotateFileVaultKeyCommand {
-	return &RotateFileVaultKeyCommand{Command: RotateFileVaultKeyPayload{RequestType: RotateFileVaultKeyRequestType}}
+func NewRotateFileVaultKeyCommand(uuid string) *RotateFileVaultKeyCommand {
+	return &RotateFileVaultKeyCommand{
+		Command:     RotateFileVaultKeyPayload{RequestType: RotateFileVaultKeyRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[RotateFileVaultKeyRequestType] = func() interface{} {
-		return NewRotateFileVaultKeyCommand()
+	newCommandFuncs[RotateFileVaultKeyRequestType] = func(uuid string) interface{} {
+		return NewRotateFileVaultKeyCommand(uuid)
 	}
 }
 

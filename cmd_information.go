@@ -30,14 +30,17 @@ func (c *DeviceInformationCommand) GenericCommand() *GenericCommand {
 }
 
 // NewDeviceInformationCommand creates a new "DeviceInformation" Apple MDM command.
-func NewDeviceInformationCommand() *DeviceInformationCommand {
-	return &DeviceInformationCommand{Command: DeviceInformationPayload{RequestType: DeviceInformationRequestType}}
+func NewDeviceInformationCommand(uuid string) *DeviceInformationCommand {
+	return &DeviceInformationCommand{
+		Command:     DeviceInformationPayload{RequestType: DeviceInformationRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[DeviceInformationRequestType] = func() interface{} {
-		return NewDeviceInformationCommand()
+	newCommandFuncs[DeviceInformationRequestType] = func(uuid string) interface{} {
+		return NewDeviceInformationCommand(uuid)
 	}
 }
 
@@ -225,14 +228,17 @@ func (c *SecurityInfoCommand) GenericCommand() *GenericCommand {
 }
 
 // NewSecurityInfoCommand creates a new "SecurityInfo" Apple MDM command.
-func NewSecurityInfoCommand() *SecurityInfoCommand {
-	return &SecurityInfoCommand{Command: GenericCommandPayload{RequestType: SecurityInfoRequestType}}
+func NewSecurityInfoCommand(uuid string) *SecurityInfoCommand {
+	return &SecurityInfoCommand{
+		Command:     GenericCommandPayload{RequestType: SecurityInfoRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[SecurityInfoRequestType] = func() interface{} {
-		return NewSecurityInfoCommand()
+	newCommandFuncs[SecurityInfoRequestType] = func(uuid string) interface{} {
+		return NewSecurityInfoCommand(uuid)
 	}
 }
 
@@ -332,14 +338,17 @@ func (c *CertificateListCommand) GenericCommand() *GenericCommand {
 }
 
 // NewCertificateListCommand creates a new "CertificateList" Apple MDM command.
-func NewCertificateListCommand() *CertificateListCommand {
-	return &CertificateListCommand{Command: CertificateListPayload{RequestType: CertificateListRequestType}}
+func NewCertificateListCommand(uuid string) *CertificateListCommand {
+	return &CertificateListCommand{
+		Command:     CertificateListPayload{RequestType: CertificateListRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[CertificateListRequestType] = func() interface{} {
-		return NewCertificateListCommand()
+	newCommandFuncs[CertificateListRequestType] = func(uuid string) interface{} {
+		return NewCertificateListCommand(uuid)
 	}
 }
 

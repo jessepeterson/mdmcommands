@@ -20,14 +20,17 @@ func (c *StopMirroringCommand) GenericCommand() *GenericCommand {
 }
 
 // NewStopMirroringCommand creates a new "StopMirroring" Apple MDM command.
-func NewStopMirroringCommand() *StopMirroringCommand {
-	return &StopMirroringCommand{Command: GenericCommandPayload{RequestType: StopMirroringRequestType}}
+func NewStopMirroringCommand(uuid string) *StopMirroringCommand {
+	return &StopMirroringCommand{
+		Command:     GenericCommandPayload{RequestType: StopMirroringRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[StopMirroringRequestType] = func() interface{} {
-		return NewStopMirroringCommand()
+	newCommandFuncs[StopMirroringRequestType] = func(uuid string) interface{} {
+		return NewStopMirroringCommand(uuid)
 	}
 }
 
@@ -75,14 +78,17 @@ func (c *RequestMirroringCommand) GenericCommand() *GenericCommand {
 }
 
 // NewRequestMirroringCommand creates a new "RequestMirroring" Apple MDM command.
-func NewRequestMirroringCommand() *RequestMirroringCommand {
-	return &RequestMirroringCommand{Command: RequestMirroringPayload{RequestType: RequestMirroringRequestType}}
+func NewRequestMirroringCommand(uuid string) *RequestMirroringCommand {
+	return &RequestMirroringCommand{
+		Command:     RequestMirroringPayload{RequestType: RequestMirroringRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[RequestMirroringRequestType] = func() interface{} {
-		return NewRequestMirroringCommand()
+	newCommandFuncs[RequestMirroringRequestType] = func(uuid string) interface{} {
+		return NewRequestMirroringCommand(uuid)
 	}
 }
 

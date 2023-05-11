@@ -20,14 +20,17 @@ func (c *RequestUnlockTokenCommand) GenericCommand() *GenericCommand {
 }
 
 // NewRequestUnlockTokenCommand creates a new "RequestUnlockToken" Apple MDM command.
-func NewRequestUnlockTokenCommand() *RequestUnlockTokenCommand {
-	return &RequestUnlockTokenCommand{Command: GenericCommandPayload{RequestType: RequestUnlockTokenRequestType}}
+func NewRequestUnlockTokenCommand(uuid string) *RequestUnlockTokenCommand {
+	return &RequestUnlockTokenCommand{
+		Command:     GenericCommandPayload{RequestType: RequestUnlockTokenRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[RequestUnlockTokenRequestType] = func() interface{} {
-		return NewRequestUnlockTokenCommand()
+	newCommandFuncs[RequestUnlockTokenRequestType] = func(uuid string) interface{} {
+		return NewRequestUnlockTokenCommand(uuid)
 	}
 }
 
@@ -74,14 +77,17 @@ func (c *SetRecoveryLockCommand) GenericCommand() *GenericCommand {
 }
 
 // NewSetRecoveryLockCommand creates a new "SetRecoveryLock" Apple MDM command.
-func NewSetRecoveryLockCommand() *SetRecoveryLockCommand {
-	return &SetRecoveryLockCommand{Command: SetRecoveryLockPayload{RequestType: SetRecoveryLockRequestType}}
+func NewSetRecoveryLockCommand(uuid string) *SetRecoveryLockCommand {
+	return &SetRecoveryLockCommand{
+		Command:     SetRecoveryLockPayload{RequestType: SetRecoveryLockRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[SetRecoveryLockRequestType] = func() interface{} {
-		return NewSetRecoveryLockCommand()
+	newCommandFuncs[SetRecoveryLockRequestType] = func(uuid string) interface{} {
+		return NewSetRecoveryLockCommand(uuid)
 	}
 }
 
@@ -126,14 +132,17 @@ func (c *ClearPasscodeCommand) GenericCommand() *GenericCommand {
 }
 
 // NewClearPasscodeCommand creates a new "ClearPasscode" Apple MDM command.
-func NewClearPasscodeCommand() *ClearPasscodeCommand {
-	return &ClearPasscodeCommand{Command: ClearPasscodePayload{RequestType: ClearPasscodeRequestType}}
+func NewClearPasscodeCommand(uuid string) *ClearPasscodeCommand {
+	return &ClearPasscodeCommand{
+		Command:     ClearPasscodePayload{RequestType: ClearPasscodeRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[ClearPasscodeRequestType] = func() interface{} {
-		return NewClearPasscodeCommand()
+	newCommandFuncs[ClearPasscodeRequestType] = func(uuid string) interface{} {
+		return NewClearPasscodeCommand(uuid)
 	}
 }
 
@@ -178,14 +187,17 @@ func (c *VerifyFirmwarePasswordCommand) GenericCommand() *GenericCommand {
 }
 
 // NewVerifyFirmwarePasswordCommand creates a new "VerifyFirmwarePassword" Apple MDM command.
-func NewVerifyFirmwarePasswordCommand() *VerifyFirmwarePasswordCommand {
-	return &VerifyFirmwarePasswordCommand{Command: VerifyFirmwarePasswordPayload{RequestType: VerifyFirmwarePasswordRequestType}}
+func NewVerifyFirmwarePasswordCommand(uuid string) *VerifyFirmwarePasswordCommand {
+	return &VerifyFirmwarePasswordCommand{
+		Command:     VerifyFirmwarePasswordPayload{RequestType: VerifyFirmwarePasswordRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[VerifyFirmwarePasswordRequestType] = func() interface{} {
-		return NewVerifyFirmwarePasswordCommand()
+	newCommandFuncs[VerifyFirmwarePasswordRequestType] = func(uuid string) interface{} {
+		return NewVerifyFirmwarePasswordCommand(uuid)
 	}
 }
 
@@ -231,14 +243,17 @@ func (c *VerifyRecoveryLockCommand) GenericCommand() *GenericCommand {
 }
 
 // NewVerifyRecoveryLockCommand creates a new "VerifyRecoveryLock" Apple MDM command.
-func NewVerifyRecoveryLockCommand() *VerifyRecoveryLockCommand {
-	return &VerifyRecoveryLockCommand{Command: VerifyRecoveryLockPayload{RequestType: VerifyRecoveryLockRequestType}}
+func NewVerifyRecoveryLockCommand(uuid string) *VerifyRecoveryLockCommand {
+	return &VerifyRecoveryLockCommand{
+		Command:     VerifyRecoveryLockPayload{RequestType: VerifyRecoveryLockRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[VerifyRecoveryLockRequestType] = func() interface{} {
-		return NewVerifyRecoveryLockCommand()
+	newCommandFuncs[VerifyRecoveryLockRequestType] = func(uuid string) interface{} {
+		return NewVerifyRecoveryLockCommand(uuid)
 	}
 }
 
@@ -286,14 +301,17 @@ func (c *SetFirmwarePasswordCommand) GenericCommand() *GenericCommand {
 }
 
 // NewSetFirmwarePasswordCommand creates a new "SetFirmwarePassword" Apple MDM command.
-func NewSetFirmwarePasswordCommand() *SetFirmwarePasswordCommand {
-	return &SetFirmwarePasswordCommand{Command: SetFirmwarePasswordPayload{RequestType: SetFirmwarePasswordRequestType}}
+func NewSetFirmwarePasswordCommand(uuid string) *SetFirmwarePasswordCommand {
+	return &SetFirmwarePasswordCommand{
+		Command:     SetFirmwarePasswordPayload{RequestType: SetFirmwarePasswordRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[SetFirmwarePasswordRequestType] = func() interface{} {
-		return NewSetFirmwarePasswordCommand()
+	newCommandFuncs[SetFirmwarePasswordRequestType] = func(uuid string) interface{} {
+		return NewSetFirmwarePasswordCommand(uuid)
 	}
 }
 

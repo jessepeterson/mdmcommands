@@ -27,14 +27,17 @@ func (c *RemoveApplicationCommand) GenericCommand() *GenericCommand {
 }
 
 // NewRemoveApplicationCommand creates a new "RemoveApplication" Apple MDM command.
-func NewRemoveApplicationCommand() *RemoveApplicationCommand {
-	return &RemoveApplicationCommand{Command: RemoveApplicationPayload{RequestType: RemoveApplicationRequestType}}
+func NewRemoveApplicationCommand(uuid string) *RemoveApplicationCommand {
+	return &RemoveApplicationCommand{
+		Command:     RemoveApplicationPayload{RequestType: RemoveApplicationRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[RemoveApplicationRequestType] = func() interface{} {
-		return NewRemoveApplicationCommand()
+	newCommandFuncs[RemoveApplicationRequestType] = func(uuid string) interface{} {
+		return NewRemoveApplicationCommand(uuid)
 	}
 }
 
@@ -101,14 +104,17 @@ func (c *InstallApplicationCommand) GenericCommand() *GenericCommand {
 }
 
 // NewInstallApplicationCommand creates a new "InstallApplication" Apple MDM command.
-func NewInstallApplicationCommand() *InstallApplicationCommand {
-	return &InstallApplicationCommand{Command: InstallApplicationPayload{RequestType: InstallApplicationRequestType}}
+func NewInstallApplicationCommand(uuid string) *InstallApplicationCommand {
+	return &InstallApplicationCommand{
+		Command:     InstallApplicationPayload{RequestType: InstallApplicationRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[InstallApplicationRequestType] = func() interface{} {
-		return NewInstallApplicationCommand()
+	newCommandFuncs[InstallApplicationRequestType] = func(uuid string) interface{} {
+		return NewInstallApplicationCommand(uuid)
 	}
 }
 
@@ -164,14 +170,17 @@ func (c *InstallEnterpriseApplicationCommand) GenericCommand() *GenericCommand {
 }
 
 // NewInstallEnterpriseApplicationCommand creates a new "InstallEnterpriseApplication" Apple MDM command.
-func NewInstallEnterpriseApplicationCommand() *InstallEnterpriseApplicationCommand {
-	return &InstallEnterpriseApplicationCommand{Command: InstallEnterpriseApplicationPayload{RequestType: InstallEnterpriseApplicationRequestType}}
+func NewInstallEnterpriseApplicationCommand(uuid string) *InstallEnterpriseApplicationCommand {
+	return &InstallEnterpriseApplicationCommand{
+		Command:     InstallEnterpriseApplicationPayload{RequestType: InstallEnterpriseApplicationRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[InstallEnterpriseApplicationRequestType] = func() interface{} {
-		return NewInstallEnterpriseApplicationCommand()
+	newCommandFuncs[InstallEnterpriseApplicationRequestType] = func(uuid string) interface{} {
+		return NewInstallEnterpriseApplicationCommand(uuid)
 	}
 }
 
@@ -209,14 +218,17 @@ func (c *NSExtensionMappingsCommand) GenericCommand() *GenericCommand {
 }
 
 // NewNSExtensionMappingsCommand creates a new "NSExtensionMappings" Apple MDM command.
-func NewNSExtensionMappingsCommand() *NSExtensionMappingsCommand {
-	return &NSExtensionMappingsCommand{Command: GenericCommandPayload{RequestType: NSExtensionMappingsRequestType}}
+func NewNSExtensionMappingsCommand(uuid string) *NSExtensionMappingsCommand {
+	return &NSExtensionMappingsCommand{
+		Command:     GenericCommandPayload{RequestType: NSExtensionMappingsRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[NSExtensionMappingsRequestType] = func() interface{} {
-		return NewNSExtensionMappingsCommand()
+	newCommandFuncs[NSExtensionMappingsRequestType] = func(uuid string) interface{} {
+		return NewNSExtensionMappingsCommand(uuid)
 	}
 }
 
@@ -268,14 +280,17 @@ func (c *ValidateApplicationsCommand) GenericCommand() *GenericCommand {
 }
 
 // NewValidateApplicationsCommand creates a new "ValidateApplications" Apple MDM command.
-func NewValidateApplicationsCommand() *ValidateApplicationsCommand {
-	return &ValidateApplicationsCommand{Command: ValidateApplicationsPayload{RequestType: ValidateApplicationsRequestType}}
+func NewValidateApplicationsCommand(uuid string) *ValidateApplicationsCommand {
+	return &ValidateApplicationsCommand{
+		Command:     ValidateApplicationsPayload{RequestType: ValidateApplicationsRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[ValidateApplicationsRequestType] = func() interface{} {
-		return NewValidateApplicationsCommand()
+	newCommandFuncs[ValidateApplicationsRequestType] = func(uuid string) interface{} {
+		return NewValidateApplicationsCommand(uuid)
 	}
 }
 
@@ -322,14 +337,17 @@ func (c *InstalledApplicationListCommand) GenericCommand() *GenericCommand {
 }
 
 // NewInstalledApplicationListCommand creates a new "InstalledApplicationList" Apple MDM command.
-func NewInstalledApplicationListCommand() *InstalledApplicationListCommand {
-	return &InstalledApplicationListCommand{Command: InstalledApplicationListPayload{RequestType: InstalledApplicationListRequestType}}
+func NewInstalledApplicationListCommand(uuid string) *InstalledApplicationListCommand {
+	return &InstalledApplicationListCommand{
+		Command:     InstalledApplicationListPayload{RequestType: InstalledApplicationListRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[InstalledApplicationListRequestType] = func() interface{} {
-		return NewInstalledApplicationListCommand()
+	newCommandFuncs[InstalledApplicationListRequestType] = func(uuid string) interface{} {
+		return NewInstalledApplicationListCommand(uuid)
 	}
 }
 
@@ -398,14 +416,17 @@ func (c *ApplyRedemptionCodeCommand) GenericCommand() *GenericCommand {
 }
 
 // NewApplyRedemptionCodeCommand creates a new "ApplyRedemptionCode" Apple MDM command.
-func NewApplyRedemptionCodeCommand() *ApplyRedemptionCodeCommand {
-	return &ApplyRedemptionCodeCommand{Command: ApplyRedemptionCodePayload{RequestType: ApplyRedemptionCodeRequestType}}
+func NewApplyRedemptionCodeCommand(uuid string) *ApplyRedemptionCodeCommand {
+	return &ApplyRedemptionCodeCommand{
+		Command:     ApplyRedemptionCodePayload{RequestType: ApplyRedemptionCodeRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[ApplyRedemptionCodeRequestType] = func() interface{} {
-		return NewApplyRedemptionCodeCommand()
+	newCommandFuncs[ApplyRedemptionCodeRequestType] = func(uuid string) interface{} {
+		return NewApplyRedemptionCodeCommand(uuid)
 	}
 }
 
@@ -451,14 +472,17 @@ func (c *InviteToProgramCommand) GenericCommand() *GenericCommand {
 }
 
 // NewInviteToProgramCommand creates a new "InviteToProgram" Apple MDM command.
-func NewInviteToProgramCommand() *InviteToProgramCommand {
-	return &InviteToProgramCommand{Command: InviteToProgramPayload{RequestType: InviteToProgramRequestType}}
+func NewInviteToProgramCommand(uuid string) *InviteToProgramCommand {
+	return &InviteToProgramCommand{
+		Command:     InviteToProgramPayload{RequestType: InviteToProgramRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[InviteToProgramRequestType] = func() interface{} {
-		return NewInviteToProgramCommand()
+	newCommandFuncs[InviteToProgramRequestType] = func(uuid string) interface{} {
+		return NewInviteToProgramCommand(uuid)
 	}
 }
 
@@ -504,14 +528,17 @@ func (c *ManagedApplicationConfigurationCommand) GenericCommand() *GenericComman
 }
 
 // NewManagedApplicationConfigurationCommand creates a new "ManagedApplicationConfiguration" Apple MDM command.
-func NewManagedApplicationConfigurationCommand() *ManagedApplicationConfigurationCommand {
-	return &ManagedApplicationConfigurationCommand{Command: ManagedApplicationConfigurationPayload{RequestType: ManagedApplicationConfigurationRequestType}}
+func NewManagedApplicationConfigurationCommand(uuid string) *ManagedApplicationConfigurationCommand {
+	return &ManagedApplicationConfigurationCommand{
+		Command:     ManagedApplicationConfigurationPayload{RequestType: ManagedApplicationConfigurationRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[ManagedApplicationConfigurationRequestType] = func() interface{} {
-		return NewManagedApplicationConfigurationCommand()
+	newCommandFuncs[ManagedApplicationConfigurationRequestType] = func(uuid string) interface{} {
+		return NewManagedApplicationConfigurationCommand(uuid)
 	}
 }
 
@@ -563,14 +590,17 @@ func (c *ManagedApplicationFeedbackCommand) GenericCommand() *GenericCommand {
 }
 
 // NewManagedApplicationFeedbackCommand creates a new "ManagedApplicationFeedback" Apple MDM command.
-func NewManagedApplicationFeedbackCommand() *ManagedApplicationFeedbackCommand {
-	return &ManagedApplicationFeedbackCommand{Command: ManagedApplicationFeedbackPayload{RequestType: ManagedApplicationFeedbackRequestType}}
+func NewManagedApplicationFeedbackCommand(uuid string) *ManagedApplicationFeedbackCommand {
+	return &ManagedApplicationFeedbackCommand{
+		Command:     ManagedApplicationFeedbackPayload{RequestType: ManagedApplicationFeedbackRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[ManagedApplicationFeedbackRequestType] = func() interface{} {
-		return NewManagedApplicationFeedbackCommand()
+	newCommandFuncs[ManagedApplicationFeedbackRequestType] = func(uuid string) interface{} {
+		return NewManagedApplicationFeedbackCommand(uuid)
 	}
 }
 

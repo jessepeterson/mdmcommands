@@ -36,14 +36,17 @@ func (c *LOMDeviceRequestCommand) GenericCommand() *GenericCommand {
 }
 
 // NewLOMDeviceRequestCommand creates a new "LOMDeviceRequest" Apple MDM command.
-func NewLOMDeviceRequestCommand() *LOMDeviceRequestCommand {
-	return &LOMDeviceRequestCommand{Command: LOMDeviceRequestPayload{RequestType: LOMDeviceRequestRequestType}}
+func NewLOMDeviceRequestCommand(uuid string) *LOMDeviceRequestCommand {
+	return &LOMDeviceRequestCommand{
+		Command:     LOMDeviceRequestPayload{RequestType: LOMDeviceRequestRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[LOMDeviceRequestRequestType] = func() interface{} {
-		return NewLOMDeviceRequestCommand()
+	newCommandFuncs[LOMDeviceRequestRequestType] = func(uuid string) interface{} {
+		return NewLOMDeviceRequestCommand(uuid)
 	}
 }
 
@@ -88,14 +91,17 @@ func (c *LOMSetupRequestCommand) GenericCommand() *GenericCommand {
 }
 
 // NewLOMSetupRequestCommand creates a new "LOMSetupRequest" Apple MDM command.
-func NewLOMSetupRequestCommand() *LOMSetupRequestCommand {
-	return &LOMSetupRequestCommand{Command: GenericCommandPayload{RequestType: LOMSetupRequestRequestType}}
+func NewLOMSetupRequestCommand(uuid string) *LOMSetupRequestCommand {
+	return &LOMSetupRequestCommand{
+		Command:     GenericCommandPayload{RequestType: LOMSetupRequestRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[LOMSetupRequestRequestType] = func() interface{} {
-		return NewLOMSetupRequestCommand()
+	newCommandFuncs[LOMSetupRequestRequestType] = func(uuid string) interface{} {
+		return NewLOMSetupRequestCommand(uuid)
 	}
 }
 

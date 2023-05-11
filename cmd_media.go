@@ -34,14 +34,17 @@ func (c *InstallMediaCommand) GenericCommand() *GenericCommand {
 }
 
 // NewInstallMediaCommand creates a new "InstallMedia" Apple MDM command.
-func NewInstallMediaCommand() *InstallMediaCommand {
-	return &InstallMediaCommand{Command: InstallMediaPayload{RequestType: InstallMediaRequestType}}
+func NewInstallMediaCommand(uuid string) *InstallMediaCommand {
+	return &InstallMediaCommand{
+		Command:     InstallMediaPayload{RequestType: InstallMediaRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[InstallMediaRequestType] = func() interface{} {
-		return NewInstallMediaCommand()
+	newCommandFuncs[InstallMediaRequestType] = func(uuid string) interface{} {
+		return NewInstallMediaCommand(uuid)
 	}
 }
 
@@ -94,14 +97,17 @@ func (c *RemoveMediaCommand) GenericCommand() *GenericCommand {
 }
 
 // NewRemoveMediaCommand creates a new "RemoveMedia" Apple MDM command.
-func NewRemoveMediaCommand() *RemoveMediaCommand {
-	return &RemoveMediaCommand{Command: RemoveMediaPayload{RequestType: RemoveMediaRequestType}}
+func NewRemoveMediaCommand(uuid string) *RemoveMediaCommand {
+	return &RemoveMediaCommand{
+		Command:     RemoveMediaPayload{RequestType: RemoveMediaRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[RemoveMediaRequestType] = func() interface{} {
-		return NewRemoveMediaCommand()
+	newCommandFuncs[RemoveMediaRequestType] = func(uuid string) interface{} {
+		return NewRemoveMediaCommand(uuid)
 	}
 }
 
@@ -139,14 +145,17 @@ func (c *ManagedMediaListCommand) GenericCommand() *GenericCommand {
 }
 
 // NewManagedMediaListCommand creates a new "ManagedMediaList" Apple MDM command.
-func NewManagedMediaListCommand() *ManagedMediaListCommand {
-	return &ManagedMediaListCommand{Command: GenericCommandPayload{RequestType: ManagedMediaListRequestType}}
+func NewManagedMediaListCommand(uuid string) *ManagedMediaListCommand {
+	return &ManagedMediaListCommand{
+		Command:     GenericCommandPayload{RequestType: ManagedMediaListRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[ManagedMediaListRequestType] = func() interface{} {
-		return NewManagedMediaListCommand()
+	newCommandFuncs[ManagedMediaListRequestType] = func(uuid string) interface{} {
+		return NewManagedMediaListCommand(uuid)
 	}
 }
 

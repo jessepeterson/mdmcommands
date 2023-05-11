@@ -37,14 +37,17 @@ func (c *ScheduleOSUpdateCommand) GenericCommand() *GenericCommand {
 }
 
 // NewScheduleOSUpdateCommand creates a new "ScheduleOSUpdate" Apple MDM command.
-func NewScheduleOSUpdateCommand() *ScheduleOSUpdateCommand {
-	return &ScheduleOSUpdateCommand{Command: ScheduleOSUpdatePayload{RequestType: ScheduleOSUpdateRequestType}}
+func NewScheduleOSUpdateCommand(uuid string) *ScheduleOSUpdateCommand {
+	return &ScheduleOSUpdateCommand{
+		Command:     ScheduleOSUpdatePayload{RequestType: ScheduleOSUpdateRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[ScheduleOSUpdateRequestType] = func() interface{} {
-		return NewScheduleOSUpdateCommand()
+	newCommandFuncs[ScheduleOSUpdateRequestType] = func(uuid string) interface{} {
+		return NewScheduleOSUpdateCommand(uuid)
 	}
 }
 
@@ -90,14 +93,17 @@ func (c *AvailableOSUpdatesCommand) GenericCommand() *GenericCommand {
 }
 
 // NewAvailableOSUpdatesCommand creates a new "AvailableOSUpdates" Apple MDM command.
-func NewAvailableOSUpdatesCommand() *AvailableOSUpdatesCommand {
-	return &AvailableOSUpdatesCommand{Command: GenericCommandPayload{RequestType: AvailableOSUpdatesRequestType}}
+func NewAvailableOSUpdatesCommand(uuid string) *AvailableOSUpdatesCommand {
+	return &AvailableOSUpdatesCommand{
+		Command:     GenericCommandPayload{RequestType: AvailableOSUpdatesRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[AvailableOSUpdatesRequestType] = func() interface{} {
-		return NewAvailableOSUpdatesCommand()
+	newCommandFuncs[AvailableOSUpdatesRequestType] = func(uuid string) interface{} {
+		return NewAvailableOSUpdatesCommand(uuid)
 	}
 }
 
@@ -167,14 +173,17 @@ func (c *ScheduleOSUpdateScanCommand) GenericCommand() *GenericCommand {
 }
 
 // NewScheduleOSUpdateScanCommand creates a new "ScheduleOSUpdateScan" Apple MDM command.
-func NewScheduleOSUpdateScanCommand() *ScheduleOSUpdateScanCommand {
-	return &ScheduleOSUpdateScanCommand{Command: ScheduleOSUpdateScanPayload{RequestType: ScheduleOSUpdateScanRequestType}}
+func NewScheduleOSUpdateScanCommand(uuid string) *ScheduleOSUpdateScanCommand {
+	return &ScheduleOSUpdateScanCommand{
+		Command:     ScheduleOSUpdateScanPayload{RequestType: ScheduleOSUpdateScanRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[ScheduleOSUpdateScanRequestType] = func() interface{} {
-		return NewScheduleOSUpdateScanCommand()
+	newCommandFuncs[ScheduleOSUpdateScanRequestType] = func(uuid string) interface{} {
+		return NewScheduleOSUpdateScanCommand(uuid)
 	}
 }
 
@@ -213,14 +222,17 @@ func (c *OSUpdateStatusCommand) GenericCommand() *GenericCommand {
 }
 
 // NewOSUpdateStatusCommand creates a new "OSUpdateStatus" Apple MDM command.
-func NewOSUpdateStatusCommand() *OSUpdateStatusCommand {
-	return &OSUpdateStatusCommand{Command: GenericCommandPayload{RequestType: OSUpdateStatusRequestType}}
+func NewOSUpdateStatusCommand(uuid string) *OSUpdateStatusCommand {
+	return &OSUpdateStatusCommand{
+		Command:     GenericCommandPayload{RequestType: OSUpdateStatusRequestType},
+		CommandUUID: uuid,
+	}
 }
 
 func init() {
 	// associate our Request Type to a function for creating a command of that type
-	newCommandFuncs[OSUpdateStatusRequestType] = func() interface{} {
-		return NewOSUpdateStatusCommand()
+	newCommandFuncs[OSUpdateStatusRequestType] = func(uuid string) interface{} {
+		return NewOSUpdateStatusCommand(uuid)
 	}
 }
 

@@ -28,16 +28,16 @@ func NewGenericCommand(requestType string) *GenericCommand {
 	return &GenericCommand{Command: GenericCommandPayload{RequestType: requestType}}
 }
 
-var newCommandFuncs map[string]func() interface{} = make(map[string]func() interface{})
+var newCommandFuncs map[string]func(string) interface{} = make(map[string]func(string) interface{})
 var newResponseFuncs map[string]func() interface{} = make(map[string]func() interface{})
 
 // NewCommand creates a new command from requestType.
-func NewCommand(requestType string) interface{} {
+func NewCommand(requestType string, uuid string) interface{} {
 	newCmdFn, ok := newCommandFuncs[requestType]
 	if !ok || newCmdFn == nil {
 		return nil
 	}
-	return newCmdFn()
+	return newCmdFn(uuid)
 }
 
 // ValidRequestType checks that we are able to create a new command from requestType.
