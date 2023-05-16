@@ -3,6 +3,8 @@
 // Options: no-shared=true
 package mdmcommands
 
+import "fmt"
+
 const DeleteUserRequestType = "DeleteUser"
 
 // DeleteUserPayload is the "inner" command-specific payload for the "DeleteUser" Apple MDM command.
@@ -46,6 +48,14 @@ func init() {
 // DeleteUserResponse is the command result report (response) for the "DeleteUser" Apple MDM command.
 type DeleteUserResponse struct {
 	GenericResponse
+}
+
+// Validate checks for any command response errors.
+func (r *DeleteUserResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
 }
 
 // GetGenericResponse creates a new generic command response using the values of r.
@@ -110,6 +120,14 @@ type UserListResponse struct {
 	GenericResponse
 }
 
+// Validate checks for any command response errors.
+func (r *UserListResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
+}
+
 // GetGenericResponse creates a new generic command response using the values of r.
 func (r *UserListResponse) GetGenericResponse() *GenericResponse {
 	return &r.GenericResponse
@@ -156,6 +174,14 @@ func init() {
 // LogOutUserResponse is the command result report (response) for the "LogOutUser" Apple MDM command.
 type LogOutUserResponse struct {
 	GenericResponse
+}
+
+// Validate checks for any command response errors.
+func (r *LogOutUserResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
 }
 
 // GetGenericResponse creates a new generic command response using the values of r.
@@ -213,6 +239,14 @@ type UnlockUserAccountResponse struct {
 	GenericResponse
 }
 
+// Validate checks for any command response errors.
+func (r *UnlockUserAccountResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
+}
+
 // GetGenericResponse creates a new generic command response using the values of r.
 func (r *UnlockUserAccountResponse) GetGenericResponse() *GenericResponse {
 	return &r.GenericResponse
@@ -267,6 +301,14 @@ func init() {
 // SetAutoAdminPasswordResponse is the command result report (response) for the "SetAutoAdminPassword" Apple MDM command.
 type SetAutoAdminPasswordResponse struct {
 	GenericResponse
+}
+
+// Validate checks for any command response errors.
+func (r *SetAutoAdminPasswordResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
 }
 
 // GetGenericResponse creates a new generic command response using the values of r.
@@ -336,6 +378,14 @@ func init() {
 // AccountConfigurationResponse is the command result report (response) for the "AccountConfiguration" Apple MDM command.
 type AccountConfigurationResponse struct {
 	GenericResponse
+}
+
+// Validate checks for any command response errors.
+func (r *AccountConfigurationResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
 }
 
 // GetGenericResponse creates a new generic command response using the values of r.

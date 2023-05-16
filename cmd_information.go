@@ -3,7 +3,10 @@
 // Options: no-shared=true
 package mdmcommands
 
-import "time"
+import (
+	"fmt"
+	"time"
+)
 
 const DeviceInformationRequestType = "DeviceInformation"
 
@@ -199,6 +202,14 @@ type DeviceInformationResponse struct {
 	GenericResponse
 }
 
+// Validate checks for any command response errors.
+func (r *DeviceInformationResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
+}
+
 // GetGenericResponse creates a new generic command response using the values of r.
 func (r *DeviceInformationResponse) GetGenericResponse() *GenericResponse {
 	return &r.GenericResponse
@@ -302,6 +313,14 @@ type SecurityInfoResponse struct {
 	GenericResponse
 }
 
+// Validate checks for any command response errors.
+func (r *SecurityInfoResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
+}
+
 // GetGenericResponse creates a new generic command response using the values of r.
 func (r *SecurityInfoResponse) GetGenericResponse() *GenericResponse {
 	return &r.GenericResponse
@@ -362,6 +381,14 @@ type CertificateListItem struct {
 type CertificateListResponse struct {
 	CertificateList []CertificateListItem
 	GenericResponse
+}
+
+// Validate checks for any command response errors.
+func (r *CertificateListResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
 }
 
 // GetGenericResponse creates a new generic command response using the values of r.

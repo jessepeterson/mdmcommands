@@ -3,6 +3,8 @@
 // Options: no-shared=true
 package mdmcommands
 
+import "fmt"
+
 const LOMDeviceRequestRequestType = "LOMDeviceRequest"
 
 type RequestListItem struct {
@@ -62,6 +64,14 @@ type LOMDeviceRequestResponse struct {
 	GenericResponse
 }
 
+// Validate checks for any command response errors.
+func (r *LOMDeviceRequestResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
+}
+
 // GetGenericResponse creates a new generic command response using the values of r.
 func (r *LOMDeviceRequestResponse) GetGenericResponse() *GenericResponse {
 	return &r.GenericResponse
@@ -111,6 +121,14 @@ type LOMSetupRequestResponse struct {
 	SecondaryIPv6AddressList []string
 	LOMProtocolVersion       int
 	GenericResponse
+}
+
+// Validate checks for any command response errors.
+func (r *LOMSetupRequestResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
 }
 
 // GetGenericResponse creates a new generic command response using the values of r.

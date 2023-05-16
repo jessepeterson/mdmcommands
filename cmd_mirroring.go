@@ -3,6 +3,8 @@
 // Options: no-shared=true
 package mdmcommands
 
+import "fmt"
+
 const StopMirroringRequestType = "StopMirroring"
 
 // StopMirroringCommand is the top-level structure for the "StopMirroring" Apple MDM command.
@@ -37,6 +39,14 @@ func init() {
 // StopMirroringResponse is the command result report (response) for the "StopMirroring" Apple MDM command.
 type StopMirroringResponse struct {
 	GenericResponse
+}
+
+// Validate checks for any command response errors.
+func (r *StopMirroringResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
 }
 
 // GetGenericResponse creates a new generic command response using the values of r.
@@ -96,6 +106,14 @@ func init() {
 type RequestMirroringResponse struct {
 	MirroringResult *string `plist:",omitempty"`
 	GenericResponse
+}
+
+// Validate checks for any command response errors.
+func (r *RequestMirroringResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
 }
 
 // GetGenericResponse creates a new generic command response using the values of r.

@@ -3,6 +3,8 @@
 // Options: no-shared=true
 package mdmcommands
 
+import "fmt"
+
 const EnableRemoteDesktopRequestType = "EnableRemoteDesktop"
 
 // EnableRemoteDesktopCommand is the top-level structure for the "EnableRemoteDesktop" Apple MDM command.
@@ -37,6 +39,14 @@ func init() {
 // EnableRemoteDesktopResponse is the command result report (response) for the "EnableRemoteDesktop" Apple MDM command.
 type EnableRemoteDesktopResponse struct {
 	GenericResponse
+}
+
+// Validate checks for any command response errors.
+func (r *EnableRemoteDesktopResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
 }
 
 // GetGenericResponse creates a new generic command response using the values of r.
@@ -85,6 +95,14 @@ func init() {
 // DisableRemoteDesktopResponse is the command result report (response) for the "DisableRemoteDesktop" Apple MDM command.
 type DisableRemoteDesktopResponse struct {
 	GenericResponse
+}
+
+// Validate checks for any command response errors.
+func (r *DisableRemoteDesktopResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
 }
 
 // GetGenericResponse creates a new generic command response using the values of r.

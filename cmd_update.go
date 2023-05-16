@@ -3,7 +3,10 @@
 // Options: no-shared=true
 package mdmcommands
 
-import "time"
+import (
+	"fmt"
+	"time"
+)
 
 const ScheduleOSUpdateRequestType = "ScheduleOSUpdate"
 
@@ -62,6 +65,14 @@ type UpdateResultsItem struct {
 type ScheduleOSUpdateResponse struct {
 	UpdateResults []UpdateResultsItem
 	GenericResponse
+}
+
+// Validate checks for any command response errors.
+func (r *ScheduleOSUpdateResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
 }
 
 // GetGenericResponse creates a new generic command response using the values of r.
@@ -137,6 +148,14 @@ type AvailableOSUpdatesResponse struct {
 	GenericResponse
 }
 
+// Validate checks for any command response errors.
+func (r *AvailableOSUpdatesResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
+}
+
 // GetGenericResponse creates a new generic command response using the values of r.
 func (r *AvailableOSUpdatesResponse) GetGenericResponse() *GenericResponse {
 	return &r.GenericResponse
@@ -191,6 +210,14 @@ func init() {
 type ScheduleOSUpdateScanResponse struct {
 	ScanInitiated bool
 	GenericResponse
+}
+
+// Validate checks for any command response errors.
+func (r *ScheduleOSUpdateScanResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
 }
 
 // GetGenericResponse creates a new generic command response using the values of r.
@@ -251,6 +278,14 @@ type OSUpdateStatusItem struct {
 type OSUpdateStatusResponse struct {
 	OSUpdateStatus []OSUpdateStatusItem
 	GenericResponse
+}
+
+// Validate checks for any command response errors.
+func (r *OSUpdateStatusResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
 }
 
 // GetGenericResponse creates a new generic command response using the values of r.

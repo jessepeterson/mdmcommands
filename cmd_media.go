@@ -3,6 +3,8 @@
 // Options: no-shared=true
 package mdmcommands
 
+import "fmt"
+
 const InstallMediaRequestType = "InstallMedia"
 
 // InstallMediaPayload is the "inner" command-specific payload for the "InstallMedia" Apple MDM command.
@@ -57,6 +59,14 @@ type InstallMediaResponse struct {
 	State           *string `plist:",omitempty"` // supported values: Queued, PromptingForLogin, Updating, Installing, Managed, ManagedButUninstalled, Installed, Uninstalled, Failed, Unknown
 	RejectionReason *string `plist:",omitempty"` // supported values: CouldNotVerifyITunesStoreID, PurchaseNotFound, AppStoreDisabled, WrongMediaType, DownloadInvalid, EnterpriseBooksNotSupportedInMultiUser
 	GenericResponse
+}
+
+// Validate checks for any command response errors.
+func (r *InstallMediaResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
 }
 
 // GetGenericResponse creates a new generic command response using the values of r.
@@ -116,6 +126,14 @@ type RemoveMediaResponse struct {
 	GenericResponse
 }
 
+// Validate checks for any command response errors.
+func (r *RemoveMediaResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
+}
+
 // GetGenericResponse creates a new generic command response using the values of r.
 func (r *RemoveMediaResponse) GetGenericResponse() *GenericResponse {
 	return &r.GenericResponse
@@ -173,6 +191,14 @@ type BooksItem struct {
 type ManagedMediaListResponse struct {
 	Books []BooksItem
 	GenericResponse
+}
+
+// Validate checks for any command response errors.
+func (r *ManagedMediaListResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
 }
 
 // GetGenericResponse creates a new generic command response using the values of r.

@@ -3,6 +3,8 @@
 // Options: no-shared=true
 package mdmcommands
 
+import "fmt"
+
 const ShutDownDeviceRequestType = "ShutDownDevice"
 
 // ShutDownDeviceCommand is the top-level structure for the "ShutDownDevice" Apple MDM command.
@@ -37,6 +39,14 @@ func init() {
 // ShutDownDeviceResponse is the command result report (response) for the "ShutDownDevice" Apple MDM command.
 type ShutDownDeviceResponse struct {
 	GenericResponse
+}
+
+// Validate checks for any command response errors.
+func (r *ShutDownDeviceResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
 }
 
 // GetGenericResponse creates a new generic command response using the values of r.
@@ -96,6 +106,14 @@ type RestartDeviceResponse struct {
 	GenericResponse
 }
 
+// Validate checks for any command response errors.
+func (r *RestartDeviceResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
+}
+
 // GetGenericResponse creates a new generic command response using the values of r.
 func (r *RestartDeviceResponse) GetGenericResponse() *GenericResponse {
 	return &r.GenericResponse
@@ -142,6 +160,14 @@ func init() {
 // DeviceConfiguredResponse is the command result report (response) for the "DeviceConfigured" Apple MDM command.
 type DeviceConfiguredResponse struct {
 	GenericResponse
+}
+
+// Validate checks for any command response errors.
+func (r *DeviceConfiguredResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
 }
 
 // GetGenericResponse creates a new generic command response using the values of r.
@@ -202,6 +228,14 @@ type EraseDeviceResponse struct {
 	GenericResponse
 }
 
+// Validate checks for any command response errors.
+func (r *EraseDeviceResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
+}
+
 // GetGenericResponse creates a new generic command response using the values of r.
 func (r *EraseDeviceResponse) GetGenericResponse() *GenericResponse {
 	return &r.GenericResponse
@@ -259,6 +293,14 @@ type EnableLostModeResponse struct {
 	GenericResponse
 }
 
+// Validate checks for any command response errors.
+func (r *EnableLostModeResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
+}
+
 // GetGenericResponse creates a new generic command response using the values of r.
 func (r *EnableLostModeResponse) GetGenericResponse() *GenericResponse {
 	return &r.GenericResponse
@@ -305,6 +347,14 @@ func init() {
 // DisableLostModeResponse is the command result report (response) for the "DisableLostMode" Apple MDM command.
 type DisableLostModeResponse struct {
 	GenericResponse
+}
+
+// Validate checks for any command response errors.
+func (r *DisableLostModeResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
 }
 
 // GetGenericResponse creates a new generic command response using the values of r.
@@ -363,6 +413,14 @@ type DeviceLocationResponse struct {
 	GenericResponse
 }
 
+// Validate checks for any command response errors.
+func (r *DeviceLocationResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
+}
+
 // GetGenericResponse creates a new generic command response using the values of r.
 func (r *DeviceLocationResponse) GetGenericResponse() *GenericResponse {
 	return &r.GenericResponse
@@ -411,6 +469,14 @@ type PlayLostModeSoundResponse struct {
 	GenericResponse
 }
 
+// Validate checks for any command response errors.
+func (r *PlayLostModeSoundResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
+}
+
 // GetGenericResponse creates a new generic command response using the values of r.
 func (r *PlayLostModeSoundResponse) GetGenericResponse() *GenericResponse {
 	return &r.GenericResponse
@@ -457,6 +523,14 @@ func init() {
 // ClearRestrictionsPasswordResponse is the command result report (response) for the "ClearRestrictionsPassword" Apple MDM command.
 type ClearRestrictionsPasswordResponse struct {
 	GenericResponse
+}
+
+// Validate checks for any command response errors.
+func (r *ClearRestrictionsPasswordResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
 }
 
 // GetGenericResponse creates a new generic command response using the values of r.
@@ -517,6 +591,14 @@ type DeviceLockResponse struct {
 	GenericResponse
 }
 
+// Validate checks for any command response errors.
+func (r *DeviceLockResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
+}
+
 // GetGenericResponse creates a new generic command response using the values of r.
 func (r *DeviceLockResponse) GetGenericResponse() *GenericResponse {
 	return &r.GenericResponse
@@ -572,6 +654,14 @@ type RefreshCellularPlansResponse struct {
 	GenericResponse
 }
 
+// Validate checks for any command response errors.
+func (r *RefreshCellularPlansResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
+}
+
 // GetGenericResponse creates a new generic command response using the values of r.
 func (r *RefreshCellularPlansResponse) GetGenericResponse() *GenericResponse {
 	return &r.GenericResponse
@@ -621,6 +711,14 @@ type ActivationLockBypassCodeResponse struct {
 	GenericResponse
 }
 
+// Validate checks for any command response errors.
+func (r *ActivationLockBypassCodeResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
+}
+
 // GetGenericResponse creates a new generic command response using the values of r.
 func (r *ActivationLockBypassCodeResponse) GetGenericResponse() *GenericResponse {
 	return &r.GenericResponse
@@ -667,6 +765,14 @@ func init() {
 // ClearActivationLockBypassCodeResponse is the command result report (response) for the "ClearActivationLockBypassCode" Apple MDM command.
 type ClearActivationLockBypassCodeResponse struct {
 	GenericResponse
+}
+
+// Validate checks for any command response errors.
+func (r *ClearActivationLockBypassCodeResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
 }
 
 // GetGenericResponse creates a new generic command response using the values of r.
@@ -722,6 +828,14 @@ func init() {
 // DeclarativeManagementResponse is the command result report (response) for the "DeclarativeManagement" Apple MDM command.
 type DeclarativeManagementResponse struct {
 	GenericResponse
+}
+
+// Validate checks for any command response errors.
+func (r *DeclarativeManagementResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
 }
 
 // GetGenericResponse creates a new generic command response using the values of r.
@@ -791,6 +905,14 @@ type RotateResult struct {
 type RotateFileVaultKeyResponse struct {
 	RotateResult *RotateResult `plist:",omitempty"`
 	GenericResponse
+}
+
+// Validate checks for any command response errors.
+func (r *RotateFileVaultKeyResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
 }
 
 // GetGenericResponse creates a new generic command response using the values of r.

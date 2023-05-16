@@ -3,6 +3,8 @@
 // Options: no-shared=true
 package mdmcommands
 
+import "fmt"
+
 const RemoveApplicationRequestType = "RemoveApplication"
 
 // RemoveApplicationPayload is the "inner" command-specific payload for the "RemoveApplication" Apple MDM command.
@@ -44,6 +46,14 @@ func init() {
 // RemoveApplicationResponse is the command result report (response) for the "RemoveApplication" Apple MDM command.
 type RemoveApplicationResponse struct {
 	GenericResponse
+}
+
+// Validate checks for any command response errors.
+func (r *RemoveApplicationResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
 }
 
 // GetGenericResponse creates a new generic command response using the values of r.
@@ -126,6 +136,14 @@ type InstallApplicationResponse struct {
 	GenericResponse
 }
 
+// Validate checks for any command response errors.
+func (r *InstallApplicationResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
+}
+
 // GetGenericResponse creates a new generic command response using the values of r.
 func (r *InstallApplicationResponse) GetGenericResponse() *GenericResponse {
 	return &r.GenericResponse
@@ -189,6 +207,14 @@ type InstallEnterpriseApplicationResponse struct {
 	GenericResponse
 }
 
+// Validate checks for any command response errors.
+func (r *InstallEnterpriseApplicationResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
+}
+
 // GetGenericResponse creates a new generic command response using the values of r.
 func (r *InstallEnterpriseApplicationResponse) GetGenericResponse() *GenericResponse {
 	return &r.GenericResponse
@@ -244,6 +270,14 @@ type NSExtensionMappingsResponse struct {
 	GenericResponse
 }
 
+// Validate checks for any command response errors.
+func (r *NSExtensionMappingsResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
+}
+
 // GetGenericResponse creates a new generic command response using the values of r.
 func (r *NSExtensionMappingsResponse) GetGenericResponse() *GenericResponse {
 	return &r.GenericResponse
@@ -297,6 +331,14 @@ func init() {
 // ValidateApplicationsResponse is the command result report (response) for the "ValidateApplications" Apple MDM command.
 type ValidateApplicationsResponse struct {
 	GenericResponse
+}
+
+// Validate checks for any command response errors.
+func (r *ValidateApplicationsResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
 }
 
 // GetGenericResponse creates a new generic command response using the values of r.
@@ -379,6 +421,14 @@ type InstalledApplicationListResponse struct {
 	GenericResponse
 }
 
+// Validate checks for any command response errors.
+func (r *InstalledApplicationListResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
+}
+
 // GetGenericResponse creates a new generic command response using the values of r.
 func (r *InstalledApplicationListResponse) GetGenericResponse() *GenericResponse {
 	return &r.GenericResponse
@@ -433,6 +483,14 @@ func init() {
 // ApplyRedemptionCodeResponse is the command result report (response) for the "ApplyRedemptionCode" Apple MDM command.
 type ApplyRedemptionCodeResponse struct {
 	GenericResponse
+}
+
+// Validate checks for any command response errors.
+func (r *ApplyRedemptionCodeResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
 }
 
 // GetGenericResponse creates a new generic command response using the values of r.
@@ -490,6 +548,14 @@ func init() {
 type InviteToProgramResponse struct {
 	InvitationResult string // supported values: Acknowledged, InvalidProgramID, InvalidInvitationURL
 	GenericResponse
+}
+
+// Validate checks for any command response errors.
+func (r *InviteToProgramResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
 }
 
 // GetGenericResponse creates a new generic command response using the values of r.
@@ -553,6 +619,14 @@ type ManagedApplicationConfigurationResponse struct {
 	GenericResponse
 }
 
+// Validate checks for any command response errors.
+func (r *ManagedApplicationConfigurationResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
+}
+
 // GetGenericResponse creates a new generic command response using the values of r.
 func (r *ManagedApplicationConfigurationResponse) GetGenericResponse() *GenericResponse {
 	return &r.GenericResponse
@@ -613,6 +687,14 @@ type ManagedApplicationFeedbackItem struct {
 type ManagedApplicationFeedbackResponse struct {
 	ManagedApplicationFeedback []ManagedApplicationFeedbackItem
 	GenericResponse
+}
+
+// Validate checks for any command response errors.
+func (r *ManagedApplicationFeedbackResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
 }
 
 // GetGenericResponse creates a new generic command response using the values of r.

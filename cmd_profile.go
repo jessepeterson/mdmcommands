@@ -3,7 +3,10 @@
 // Options: no-shared=true
 package mdmcommands
 
-import "time"
+import (
+	"fmt"
+	"time"
+)
 
 const InstallProfileRequestType = "InstallProfile"
 
@@ -46,6 +49,14 @@ func init() {
 // InstallProfileResponse is the command result report (response) for the "InstallProfile" Apple MDM command.
 type InstallProfileResponse struct {
 	GenericResponse
+}
+
+// Validate checks for any command response errors.
+func (r *InstallProfileResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
 }
 
 // GetGenericResponse creates a new generic command response using the values of r.
@@ -101,6 +112,14 @@ func init() {
 // RemoveProfileResponse is the command result report (response) for the "RemoveProfile" Apple MDM command.
 type RemoveProfileResponse struct {
 	GenericResponse
+}
+
+// Validate checks for any command response errors.
+func (r *RemoveProfileResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
 }
 
 // GetGenericResponse creates a new generic command response using the values of r.
@@ -182,6 +201,14 @@ type ProfileListResponse struct {
 	GenericResponse
 }
 
+// Validate checks for any command response errors.
+func (r *ProfileListResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
+}
+
 // GetGenericResponse creates a new generic command response using the values of r.
 func (r *ProfileListResponse) GetGenericResponse() *GenericResponse {
 	return &r.GenericResponse
@@ -237,6 +264,14 @@ type InstallProvisioningProfileResponse struct {
 	GenericResponse
 }
 
+// Validate checks for any command response errors.
+func (r *InstallProvisioningProfileResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
+}
+
 // GetGenericResponse creates a new generic command response using the values of r.
 func (r *InstallProvisioningProfileResponse) GetGenericResponse() *GenericResponse {
 	return &r.GenericResponse
@@ -290,6 +325,14 @@ func init() {
 // RemoveProvisioningProfileResponse is the command result report (response) for the "RemoveProvisioningProfile" Apple MDM command.
 type RemoveProvisioningProfileResponse struct {
 	GenericResponse
+}
+
+// Validate checks for any command response errors.
+func (r *RemoveProvisioningProfileResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
 }
 
 // GetGenericResponse creates a new generic command response using the values of r.
@@ -352,6 +395,14 @@ type ProvisioningProfileListItem struct {
 type ProvisioningProfileListResponse struct {
 	ProvisioningProfileList []ProvisioningProfileListItem
 	GenericResponse
+}
+
+// Validate checks for any command response errors.
+func (r *ProvisioningProfileListResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
 }
 
 // GetGenericResponse creates a new generic command response using the values of r.

@@ -3,6 +3,8 @@
 // Options: no-shared=true
 package mdmcommands
 
+import "fmt"
+
 const RequestUnlockTokenRequestType = "RequestUnlockToken"
 
 // RequestUnlockTokenCommand is the top-level structure for the "RequestUnlockToken" Apple MDM command.
@@ -38,6 +40,14 @@ func init() {
 type RequestUnlockTokenResponse struct {
 	UnlockToken []byte
 	GenericResponse
+}
+
+// Validate checks for any command response errors.
+func (r *RequestUnlockTokenResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
 }
 
 // GetGenericResponse creates a new generic command response using the values of r.
@@ -96,6 +106,14 @@ type SetRecoveryLockResponse struct {
 	GenericResponse
 }
 
+// Validate checks for any command response errors.
+func (r *SetRecoveryLockResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
+}
+
 // GetGenericResponse creates a new generic command response using the values of r.
 func (r *SetRecoveryLockResponse) GetGenericResponse() *GenericResponse {
 	return &r.GenericResponse
@@ -149,6 +167,14 @@ func init() {
 // ClearPasscodeResponse is the command result report (response) for the "ClearPasscode" Apple MDM command.
 type ClearPasscodeResponse struct {
 	GenericResponse
+}
+
+// Validate checks for any command response errors.
+func (r *ClearPasscodeResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
 }
 
 // GetGenericResponse creates a new generic command response using the values of r.
@@ -207,6 +233,14 @@ type VerifyFirmwarePasswordResponse struct {
 	GenericResponse
 }
 
+// Validate checks for any command response errors.
+func (r *VerifyFirmwarePasswordResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
+}
+
 // GetGenericResponse creates a new generic command response using the values of r.
 func (r *VerifyFirmwarePasswordResponse) GetGenericResponse() *GenericResponse {
 	return &r.GenericResponse
@@ -261,6 +295,14 @@ func init() {
 type VerifyRecoveryLockResponse struct {
 	PasswordVerified bool
 	GenericResponse
+}
+
+// Validate checks for any command response errors.
+func (r *VerifyRecoveryLockResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
 }
 
 // GetGenericResponse creates a new generic command response using the values of r.
@@ -319,6 +361,14 @@ func init() {
 type SetFirmwarePasswordResponse struct {
 	PasswordChanged bool
 	GenericResponse
+}
+
+// Validate checks for any command response errors.
+func (r *SetFirmwarePasswordResponse) Validate() error {
+	if r.ErrorChain != nil || (r.Status != "Acknowledged" && r.Status != "Idle" && r.Status != "NotNow") {
+		return fmt.Errorf("MDM error for status %s: %w", r.Status, r.ErrorChain)
+	}
+	return nil
 }
 
 // GetGenericResponse creates a new generic command response using the values of r.
