@@ -78,7 +78,11 @@ func (ec *ErrorChain) Error() string {
 		if s != "" {
 			s += ": "
 		}
-		s += fmt.Sprintf("%s (%s, %d)", (*ec)[i].USEnglishDescription, (*ec)[i].ErrorDomain, (*ec)[i].ErrorCode)
+		errStr := (*ec)[i].USEnglishDescription
+		if errStr == "" {
+			errStr = (*ec)[i].LocalizedDescription
+		}
+		s += fmt.Sprintf("%s (%s, %d)", errStr, (*ec)[i].ErrorDomain, (*ec)[i].ErrorCode)
 	}
 	return s
 }
