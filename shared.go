@@ -55,13 +55,16 @@ func NewResponse(requestType string) interface{} {
 	return newRespFn()
 }
 
-// ErrorChain represents errors that occured on the client executing an MDM command.
-type ErrorChain struct {
+// ChainError represents an error that occured on the client executing an MDM command.
+type ChainError struct {
 	ErrorCode            int
 	ErrorDomain          string
 	LocalizedDescription string
 	USEnglishDescription string
 }
+
+// ErrorChain represents any errors that occured on the client executing an MDM command.
+type ErrorChain []ChainError
 
 // Enrollment represents the various enrollment-related data sent with responses.
 type Enrollment struct {
@@ -78,6 +81,6 @@ type GenericResponse struct {
 	CommandUUID  string
 	Status       string // supported values: Acknowledged, Error, CommandFormatError, Idle, NotNow
 	NotOnConsole bool
-	ErrorChain   *[]ErrorChain `plist:",omitempty"`
+	ErrorChain   *ErrorChain `plist:",omitempty"`
 	Enrollment
 }
