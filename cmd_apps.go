@@ -22,6 +22,9 @@ type RemoveApplicationCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *RemoveApplicationCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -107,6 +110,9 @@ type InstallApplicationCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *InstallApplicationCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -181,6 +187,9 @@ type InstallEnterpriseApplicationCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *InstallEnterpriseApplicationCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -237,6 +246,9 @@ type NSExtensionMappingsCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *NSExtensionMappingsCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -307,6 +319,9 @@ type ValidateApplicationsCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *ValidateApplicationsCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -372,6 +387,9 @@ type InstalledApplicationListCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *InstalledApplicationListCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -459,6 +477,9 @@ type ApplyRedemptionCodeCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *ApplyRedemptionCodeCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -523,6 +544,9 @@ type InviteToProgramCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *InviteToProgramCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -587,6 +611,9 @@ type ManagedApplicationConfigurationCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *ManagedApplicationConfigurationCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -657,6 +684,9 @@ type ManagedApplicationFeedbackCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *ManagedApplicationFeedbackCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether

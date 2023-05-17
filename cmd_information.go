@@ -26,6 +26,9 @@ type DeviceInformationCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *DeviceInformationCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -232,6 +235,9 @@ type SecurityInfoCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *SecurityInfoCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -350,6 +356,9 @@ type CertificateListCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *CertificateListCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether

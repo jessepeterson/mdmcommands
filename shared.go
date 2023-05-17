@@ -78,6 +78,9 @@ func (ec *ErrorChain) Error() string {
 		if s != "" {
 			s += ": "
 		}
+		// not intentionally trying to be US-centric here. however,
+		// the searchability of error messages is often more successful
+		// with the US english versions
 		errStr := (*ec)[i].USEnglishDescription
 		if errStr == "" {
 			errStr = (*ec)[i].LocalizedDescription

@@ -31,6 +31,9 @@ type LOMDeviceRequestCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *LOMDeviceRequestCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -94,6 +97,9 @@ type LOMSetupRequestCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *LOMSetupRequestCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether

@@ -15,6 +15,9 @@ type ShutDownDeviceCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *ShutDownDeviceCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -80,6 +83,9 @@ type RestartDeviceCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *RestartDeviceCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -136,6 +142,9 @@ type DeviceConfiguredCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *DeviceConfiguredCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -202,6 +211,9 @@ type EraseDeviceCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *EraseDeviceCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -267,6 +279,9 @@ type EnableLostModeCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *EnableLostModeCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -323,6 +338,9 @@ type DisableLostModeCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *DisableLostModeCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -379,6 +397,9 @@ type DeviceLocationCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *DeviceLocationCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -443,6 +464,9 @@ type PlayLostModeSoundCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *PlayLostModeSoundCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -499,6 +523,9 @@ type ClearRestrictionsPasswordCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *ClearRestrictionsPasswordCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -564,6 +591,9 @@ type DeviceLockCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *DeviceLockCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -628,6 +658,9 @@ type RefreshCellularPlansCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *RefreshCellularPlansCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -684,6 +717,9 @@ type ActivationLockBypassCodeCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *ActivationLockBypassCodeCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -741,6 +777,9 @@ type ClearActivationLockBypassCodeCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *ClearActivationLockBypassCodeCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -804,6 +843,9 @@ type DeclarativeManagementCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *DeclarativeManagementCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -876,6 +918,9 @@ type RotateFileVaultKeyCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *RotateFileVaultKeyCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether

@@ -15,6 +15,9 @@ type EnableRemoteDesktopCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *EnableRemoteDesktopCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -71,6 +74,9 @@ type DisableRemoteDesktopCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *DisableRemoteDesktopCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether

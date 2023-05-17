@@ -15,6 +15,9 @@ type StopMirroringCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *StopMirroringCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -81,6 +84,9 @@ type RequestMirroringCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *RequestMirroringCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether

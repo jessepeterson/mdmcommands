@@ -24,6 +24,9 @@ type DeleteUserCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *DeleteUserCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -80,6 +83,9 @@ type UserListCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *UserListCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -150,6 +156,9 @@ type LogOutUserCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *LogOutUserCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -213,6 +222,9 @@ type UnlockUserAccountCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *UnlockUserAccountCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -277,6 +289,9 @@ type SetAutoAdminPasswordCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *SetAutoAdminPasswordCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -354,6 +369,9 @@ type AccountConfigurationCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *AccountConfigurationCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether

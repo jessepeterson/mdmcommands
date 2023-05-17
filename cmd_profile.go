@@ -25,6 +25,9 @@ type InstallProfileCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *InstallProfileCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -88,6 +91,9 @@ type RemoveProfileCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *RemoveProfileCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -151,6 +157,9 @@ type ProfileListCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *ProfileListCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -238,6 +247,9 @@ type InstallProvisioningProfileCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *InstallProvisioningProfileCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -301,6 +313,9 @@ type RemoveProvisioningProfileCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *RemoveProvisioningProfileCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -364,6 +379,9 @@ type ProvisioningProfileListCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *ProvisioningProfileListCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether

@@ -29,6 +29,9 @@ type InstallMediaCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *InstallMediaCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -100,6 +103,9 @@ type RemoveMediaCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *RemoveMediaCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -156,6 +162,9 @@ type ManagedMediaListCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *ManagedMediaListCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether

@@ -15,6 +15,9 @@ type RequestUnlockTokenCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *RequestUnlockTokenCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -80,6 +83,9 @@ type SetRecoveryLockCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *SetRecoveryLockCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -143,6 +149,9 @@ type ClearPasscodeCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *ClearPasscodeCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -206,6 +215,9 @@ type VerifyFirmwarePasswordCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *VerifyFirmwarePasswordCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -270,6 +282,9 @@ type VerifyRecoveryLockCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *VerifyRecoveryLockCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -336,6 +351,9 @@ type SetFirmwarePasswordCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *SetFirmwarePasswordCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether

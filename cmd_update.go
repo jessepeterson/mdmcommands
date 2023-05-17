@@ -33,6 +33,9 @@ type ScheduleOSUpdateCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *ScheduleOSUpdateCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -97,6 +100,9 @@ type AvailableOSUpdatesCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *AvailableOSUpdatesCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -185,6 +191,9 @@ type ScheduleOSUpdateScanCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *ScheduleOSUpdateScanCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
@@ -242,6 +251,9 @@ type OSUpdateStatusCommand struct {
 
 // GenericCommand creates a new generic command using the values of c.
 func (c *OSUpdateStatusCommand) GenericCommand() *GenericCommand {
+	if c == nil {
+		return nil
+	}
 	cmd := NewGenericCommand(c.Command.RequestType)
 	cmd.CommandUUID = c.CommandUUID
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
