@@ -28,8 +28,7 @@ func (c *InstallProfileCommand) GenericCommand() *GenericCommand {
 	if c == nil {
 		return nil
 	}
-	cmd := NewGenericCommand(c.Command.RequestType)
-	cmd.CommandUUID = c.CommandUUID
+	cmd := NewGenericCommand(c.Command.RequestType, c.CommandUUID)
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
 	return cmd
 }
@@ -94,8 +93,7 @@ func (c *RemoveProfileCommand) GenericCommand() *GenericCommand {
 	if c == nil {
 		return nil
 	}
-	cmd := NewGenericCommand(c.Command.RequestType)
-	cmd.CommandUUID = c.CommandUUID
+	cmd := NewGenericCommand(c.Command.RequestType, c.CommandUUID)
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
 	return cmd
 }
@@ -160,8 +158,7 @@ func (c *ProfileListCommand) GenericCommand() *GenericCommand {
 	if c == nil {
 		return nil
 	}
-	cmd := NewGenericCommand(c.Command.RequestType)
-	cmd.CommandUUID = c.CommandUUID
+	cmd := NewGenericCommand(c.Command.RequestType, c.CommandUUID)
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
 	return cmd
 }
@@ -250,8 +247,7 @@ func (c *InstallProvisioningProfileCommand) GenericCommand() *GenericCommand {
 	if c == nil {
 		return nil
 	}
-	cmd := NewGenericCommand(c.Command.RequestType)
-	cmd.CommandUUID = c.CommandUUID
+	cmd := NewGenericCommand(c.Command.RequestType, c.CommandUUID)
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
 	return cmd
 }
@@ -316,8 +312,7 @@ func (c *RemoveProvisioningProfileCommand) GenericCommand() *GenericCommand {
 	if c == nil {
 		return nil
 	}
-	cmd := NewGenericCommand(c.Command.RequestType)
-	cmd.CommandUUID = c.CommandUUID
+	cmd := NewGenericCommand(c.Command.RequestType, c.CommandUUID)
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
 	return cmd
 }
@@ -382,8 +377,7 @@ func (c *ProvisioningProfileListCommand) GenericCommand() *GenericCommand {
 	if c == nil {
 		return nil
 	}
-	cmd := NewGenericCommand(c.Command.RequestType)
-	cmd.CommandUUID = c.CommandUUID
+	cmd := NewGenericCommand(c.Command.RequestType, c.CommandUUID)
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
 	return cmd
 }

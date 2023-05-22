@@ -18,8 +18,7 @@ func (c *StopMirroringCommand) GenericCommand() *GenericCommand {
 	if c == nil {
 		return nil
 	}
-	cmd := NewGenericCommand(c.Command.RequestType)
-	cmd.CommandUUID = c.CommandUUID
+	cmd := NewGenericCommand(c.Command.RequestType, c.CommandUUID)
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
 	return cmd
 }
@@ -87,8 +86,7 @@ func (c *RequestMirroringCommand) GenericCommand() *GenericCommand {
 	if c == nil {
 		return nil
 	}
-	cmd := NewGenericCommand(c.Command.RequestType)
-	cmd.CommandUUID = c.CommandUUID
+	cmd := NewGenericCommand(c.Command.RequestType, c.CommandUUID)
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
 	return cmd
 }

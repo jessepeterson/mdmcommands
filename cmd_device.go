@@ -18,8 +18,7 @@ func (c *ShutDownDeviceCommand) GenericCommand() *GenericCommand {
 	if c == nil {
 		return nil
 	}
-	cmd := NewGenericCommand(c.Command.RequestType)
-	cmd.CommandUUID = c.CommandUUID
+	cmd := NewGenericCommand(c.Command.RequestType, c.CommandUUID)
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
 	return cmd
 }
@@ -86,8 +85,7 @@ func (c *RestartDeviceCommand) GenericCommand() *GenericCommand {
 	if c == nil {
 		return nil
 	}
-	cmd := NewGenericCommand(c.Command.RequestType)
-	cmd.CommandUUID = c.CommandUUID
+	cmd := NewGenericCommand(c.Command.RequestType, c.CommandUUID)
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
 	return cmd
 }
@@ -145,8 +143,7 @@ func (c *DeviceConfiguredCommand) GenericCommand() *GenericCommand {
 	if c == nil {
 		return nil
 	}
-	cmd := NewGenericCommand(c.Command.RequestType)
-	cmd.CommandUUID = c.CommandUUID
+	cmd := NewGenericCommand(c.Command.RequestType, c.CommandUUID)
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
 	return cmd
 }
@@ -214,8 +211,7 @@ func (c *EraseDeviceCommand) GenericCommand() *GenericCommand {
 	if c == nil {
 		return nil
 	}
-	cmd := NewGenericCommand(c.Command.RequestType)
-	cmd.CommandUUID = c.CommandUUID
+	cmd := NewGenericCommand(c.Command.RequestType, c.CommandUUID)
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
 	return cmd
 }
@@ -282,8 +278,7 @@ func (c *EnableLostModeCommand) GenericCommand() *GenericCommand {
 	if c == nil {
 		return nil
 	}
-	cmd := NewGenericCommand(c.Command.RequestType)
-	cmd.CommandUUID = c.CommandUUID
+	cmd := NewGenericCommand(c.Command.RequestType, c.CommandUUID)
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
 	return cmd
 }
@@ -341,8 +336,7 @@ func (c *DisableLostModeCommand) GenericCommand() *GenericCommand {
 	if c == nil {
 		return nil
 	}
-	cmd := NewGenericCommand(c.Command.RequestType)
-	cmd.CommandUUID = c.CommandUUID
+	cmd := NewGenericCommand(c.Command.RequestType, c.CommandUUID)
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
 	return cmd
 }
@@ -400,8 +394,7 @@ func (c *DeviceLocationCommand) GenericCommand() *GenericCommand {
 	if c == nil {
 		return nil
 	}
-	cmd := NewGenericCommand(c.Command.RequestType)
-	cmd.CommandUUID = c.CommandUUID
+	cmd := NewGenericCommand(c.Command.RequestType, c.CommandUUID)
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
 	return cmd
 }
@@ -467,8 +460,7 @@ func (c *PlayLostModeSoundCommand) GenericCommand() *GenericCommand {
 	if c == nil {
 		return nil
 	}
-	cmd := NewGenericCommand(c.Command.RequestType)
-	cmd.CommandUUID = c.CommandUUID
+	cmd := NewGenericCommand(c.Command.RequestType, c.CommandUUID)
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
 	return cmd
 }
@@ -526,8 +518,7 @@ func (c *ClearRestrictionsPasswordCommand) GenericCommand() *GenericCommand {
 	if c == nil {
 		return nil
 	}
-	cmd := NewGenericCommand(c.Command.RequestType)
-	cmd.CommandUUID = c.CommandUUID
+	cmd := NewGenericCommand(c.Command.RequestType, c.CommandUUID)
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
 	return cmd
 }
@@ -594,8 +585,7 @@ func (c *DeviceLockCommand) GenericCommand() *GenericCommand {
 	if c == nil {
 		return nil
 	}
-	cmd := NewGenericCommand(c.Command.RequestType)
-	cmd.CommandUUID = c.CommandUUID
+	cmd := NewGenericCommand(c.Command.RequestType, c.CommandUUID)
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
 	return cmd
 }
@@ -661,8 +651,7 @@ func (c *RefreshCellularPlansCommand) GenericCommand() *GenericCommand {
 	if c == nil {
 		return nil
 	}
-	cmd := NewGenericCommand(c.Command.RequestType)
-	cmd.CommandUUID = c.CommandUUID
+	cmd := NewGenericCommand(c.Command.RequestType, c.CommandUUID)
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
 	return cmd
 }
@@ -720,8 +709,7 @@ func (c *ActivationLockBypassCodeCommand) GenericCommand() *GenericCommand {
 	if c == nil {
 		return nil
 	}
-	cmd := NewGenericCommand(c.Command.RequestType)
-	cmd.CommandUUID = c.CommandUUID
+	cmd := NewGenericCommand(c.Command.RequestType, c.CommandUUID)
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
 	return cmd
 }
@@ -780,8 +768,7 @@ func (c *ClearActivationLockBypassCodeCommand) GenericCommand() *GenericCommand 
 	if c == nil {
 		return nil
 	}
-	cmd := NewGenericCommand(c.Command.RequestType)
-	cmd.CommandUUID = c.CommandUUID
+	cmd := NewGenericCommand(c.Command.RequestType, c.CommandUUID)
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
 	return cmd
 }
@@ -846,8 +833,7 @@ func (c *DeclarativeManagementCommand) GenericCommand() *GenericCommand {
 	if c == nil {
 		return nil
 	}
-	cmd := NewGenericCommand(c.Command.RequestType)
-	cmd.CommandUUID = c.CommandUUID
+	cmd := NewGenericCommand(c.Command.RequestType, c.CommandUUID)
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
 	return cmd
 }
@@ -921,8 +907,7 @@ func (c *RotateFileVaultKeyCommand) GenericCommand() *GenericCommand {
 	if c == nil {
 		return nil
 	}
-	cmd := NewGenericCommand(c.Command.RequestType)
-	cmd.CommandUUID = c.CommandUUID
+	cmd := NewGenericCommand(c.Command.RequestType, c.CommandUUID)
 	cmd.Command.RequestRequiresNetworkTether = c.Command.RequestRequiresNetworkTether
 	return cmd
 }

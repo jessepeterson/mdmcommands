@@ -26,8 +26,11 @@ type GenericResponser interface {
 }
 
 // NewGenericCommand creates a new generic Apple MDM command.
-func NewGenericCommand(requestType string) *GenericCommand {
-	return &GenericCommand{Command: GenericCommandPayload{RequestType: requestType}}
+func NewGenericCommand(requestType, uuid string) *GenericCommand {
+	return &GenericCommand{
+		Command:     GenericCommandPayload{RequestType: requestType},
+		CommandUUID: uuid,
+	}
 }
 
 var newCommandFuncs map[string]func(string) interface{} = make(map[string]func(string) interface{})
