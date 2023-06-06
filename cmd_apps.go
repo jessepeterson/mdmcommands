@@ -79,10 +79,12 @@ type Attributes struct {
 	VPNUUID                                *string   `plist:",omitempty"`
 	ContentFilterUUID                      *string   `plist:",omitempty"`
 	DNSProxyUUID                           *string   `plist:",omitempty"`
+	RelayUUID                              *string   `plist:",omitempty"`
 	AssociatedDomains                      *[]string `plist:",omitempty"`
 	AssociatedDomainsEnableDirectDownloads *bool     `plist:",omitempty"`
 	Removable                              *bool     `plist:",omitempty"`
 	TapToPayScreenLock                     *bool     `plist:",omitempty"`
+	CellularSliceUUID                      *string   `plist:",omitempty"`
 }
 
 // InstallApplicationPayload is the "inner" command-specific payload for the "InstallApplication" Apple MDM command.
@@ -135,7 +137,7 @@ func init() {
 // InstallApplicationResponse is the command result report (response) for the "InstallApplication" Apple MDM command.
 type InstallApplicationResponse struct {
 	Identifier      *string `plist:",omitempty"`
-	State           *string `plist:",omitempty"`
+	State           *string `plist:",omitempty"` // supported values: Queued, NeedsRedemption, Redeeming, Prompting, PromptingForLogin, ValidatingPurchase, Installing, Managed, ManagedButUninstalled, UserInstalledApp, UserRejectedFailed, PromptingForUpdate, PromptingForUpdateLogin, ValidatingUpdate, Updating, UpdateRejected, PromptingForManagement, ManagementRejected, Unknown
 	RejectionReason *string `plist:",omitempty"` // supported values: AppAlreadyInstalled, AppAlreadyQueued, AppStoreDisabled, CouldNotVerifyAppID, ManagementChangeNotSupported, NotAnApp, NotSupported, PurchaseMethodNotSupported, PurchaseMethodNotSupportedInMultiUser
 	GenericResponse
 }

@@ -235,9 +235,13 @@ func init() {
 	}
 }
 
+type VerifyFirmwarePassword struct {
+	PasswordVerified bool
+}
+
 // VerifyFirmwarePasswordResponse is the command result report (response) for the "VerifyFirmwarePassword" Apple MDM command.
 type VerifyFirmwarePasswordResponse struct {
-	PasswordVerified bool
+	VerifyFirmwarePassword VerifyFirmwarePassword
 	GenericResponse
 }
 
@@ -369,9 +373,13 @@ func init() {
 	}
 }
 
+type SetFirmwarePassword struct {
+	PasswordChanged bool
+}
+
 // SetFirmwarePasswordResponse is the command result report (response) for the "SetFirmwarePassword" Apple MDM command.
 type SetFirmwarePasswordResponse struct {
-	PasswordChanged bool
+	SetFirmwarePassword SetFirmwarePassword
 	GenericResponse
 }
 

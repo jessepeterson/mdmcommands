@@ -190,14 +190,21 @@ func init() {
 
 const EraseDeviceRequestType = "EraseDevice"
 
+type ReturnToService struct {
+	Enabled         bool
+	WiFiProfileData *[]byte `plist:",omitempty"`
+	MDMProfileData  *[]byte `plist:",omitempty"`
+}
+
 // EraseDevicePayload is the "inner" command-specific payload for the "EraseDevice" Apple MDM command.
 type EraseDevicePayload struct {
-	PreserveDataPlan             *bool   `plist:",omitempty"`
-	DisallowProximitySetup       *bool   `plist:",omitempty"`
-	PIN                          *string `plist:",omitempty"`
-	ObliterationBehavior         *string `plist:",omitempty"` // supported values: Default, DoNotObliterate, ObliterateWithWarning, Always
-	RequestType                  string  // supported value: EraseDevice
-	RequestRequiresNetworkTether *bool   `plist:",omitempty"`
+	PreserveDataPlan             *bool            `plist:",omitempty"`
+	DisallowProximitySetup       *bool            `plist:",omitempty"`
+	PIN                          *string          `plist:",omitempty"`
+	ObliterationBehavior         *string          `plist:",omitempty"` // supported values: Default, DoNotObliterate, ObliterateWithWarning, Always
+	ReturnToService              *ReturnToService `plist:",omitempty"`
+	RequestType                  string           // supported value: EraseDevice
+	RequestRequiresNetworkTether *bool            `plist:",omitempty"`
 }
 
 // EraseDeviceCommand is the top-level structure for the "EraseDevice" Apple MDM command.

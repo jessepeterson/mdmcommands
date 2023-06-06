@@ -61,6 +61,7 @@ groups = {
         "user.list.yaml",
         "user.logout.yaml",
         "user.unlock.yaml",
+        "user.configured.yaml",
         "set.auto.admin.password.yaml",
         "account.configuration.yaml",
     ],

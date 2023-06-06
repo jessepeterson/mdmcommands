@@ -67,7 +67,7 @@ type OSUpdateSettings struct {
 	PreviousScanDate                *time.Time
 	PreviousScanResult              *string
 	PerformPeriodicCheck            *bool
-	AutoCheckEnabled                *bool
+	AutomaticCheckEnabled           *bool
 	BackgroundDownloadEnabled       *bool
 	AutomaticAppInstallationEnabled *bool
 	AutomaticOSInstallationEnabled  *bool
@@ -107,6 +107,7 @@ type AccessibilitySettings struct {
 	TouchAccommodationsEnabled *bool
 	VoiceOverEnabled           *bool
 	ZoomEnabled                *bool
+	GrayscaleEnabled           *bool
 }
 type QueryResponses struct {
 	UDID                                  *string
