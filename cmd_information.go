@@ -67,7 +67,7 @@ type OSUpdateSettings struct {
 	PreviousScanDate                *time.Time
 	PreviousScanResult              *string
 	PerformPeriodicCheck            *bool
-	AutomaticCheckEnabled           *bool
+	AutoCheckEnabled                *bool
 	BackgroundDownloadEnabled       *bool
 	AutomaticAppInstallationEnabled *bool
 	AutomaticOSInstallationEnabled  *bool
