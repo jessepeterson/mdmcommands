@@ -294,6 +294,7 @@ type SecurityInfo struct {
 	PasscodeCompliantWithProfiles                    *bool
 	PasscodeLockGracePeriod                          *int
 	PasscodeLockGracePeriodEnforced                  *int
+	AutoLockTime                                     *int
 	FDEEnabled                                       *bool   `plist:"FDE_Enabled"`
 	FDEHasPersonalRecoveryKey                        *bool   `plist:"FDE_HasPersonalRecoveryKey"`
 	FDEHasInstitutionalRecoveryKey                   *bool   `plist:"FDE_HasInstitutionalRecoveryKey"`

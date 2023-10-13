@@ -182,6 +182,7 @@ type PayloadContentItem struct {
 	PayloadType         string
 	PayloadVersion      int
 	PayloadIdentifier   string
+	PayloadUUID         string
 	PayloadDisplayName  *string `plist:",omitempty"`
 	PayloadDescription  *string `plist:",omitempty"`
 	PayloadOrganization *string `plist:",omitempty"`
