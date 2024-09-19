@@ -371,7 +371,7 @@ const InstalledApplicationListRequestType = "InstalledApplicationList"
 type InstalledApplicationListPayload struct {
 	Identifiers                  *[]string `plist:",omitempty"`
 	ManagedAppsOnly              *bool     `plist:",omitempty"`
-	Items                        *[]string `plist:",omitempty"` // supported values: AdHocCodeSigned, AppStoreVendable, BetaApp, BundleSize, DeviceBasedVPP, DynamicSize, ExternalVersionIdentifier, HasUpdateAvailable, Identifier, Installing, IsAppClip, IsValidated, Name, ShortVersion, Version
+	Items                        *[]string `plist:",omitempty"` // supported values: AdHocCodeSigned, AppStoreVendable, BetaApp, BundleSize, DeviceBasedVPP, DistributorIdentifier, DynamicSize, ExternalVersionIdentifier, HasUpdateAvailable, Identifier, Installing, IsAppClip, IsValidated, Name, ShortVersion, Version
 	RequestType                  string    // supported value: InstalledApplicationList
 	RequestRequiresNetworkTether *bool     `plist:",omitempty"`
 }
@@ -410,6 +410,7 @@ func init() {
 type InstalledApplicationListItem struct {
 	Identifier                *string `plist:",omitempty"`
 	ExternalVersionIdentifier *int    `plist:",omitempty"`
+	DistributorIdentifier     *string `plist:",omitempty"`
 	Version                   *string `plist:",omitempty"`
 	ShortVersion              *string `plist:",omitempty"`
 	Name                      *string `plist:",omitempty"`
@@ -427,6 +428,7 @@ type InstalledApplicationListItem struct {
 	DownloadPaused            *bool   `plist:",omitempty"`
 	DownloadCancelled         *bool   `plist:",omitempty"`
 	IsAppClip                 *bool   `plist:",omitempty"`
+	Source                    *string `plist:",omitempty"`
 }
 
 // InstalledApplicationListResponse is the command result report (response) for the "InstalledApplicationList" Apple MDM command.

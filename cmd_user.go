@@ -9,11 +9,11 @@ const DeleteUserRequestType = "DeleteUser"
 
 // DeleteUserPayload is the "inner" command-specific payload for the "DeleteUser" Apple MDM command.
 type DeleteUserPayload struct {
-	UserName                     string
-	ForceDeletion                *bool  `plist:",omitempty"`
-	DeleteAllUsers               *bool  `plist:",omitempty"`
-	RequestType                  string // supported value: DeleteUser
-	RequestRequiresNetworkTether *bool  `plist:",omitempty"`
+	UserName                     *string `plist:",omitempty"`
+	ForceDeletion                *bool   `plist:",omitempty"`
+	DeleteAllUsers               *bool   `plist:",omitempty"`
+	RequestType                  string  // supported value: DeleteUser
+	RequestRequiresNetworkTether *bool   `plist:",omitempty"`
 }
 
 // DeleteUserCommand is the top-level structure for the "DeleteUser" Apple MDM command.
