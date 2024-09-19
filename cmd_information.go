@@ -62,10 +62,10 @@ type MDMOptions struct {
 	PromptUserToAllowBootstrapTokenForAuthentication *bool `plist:",omitempty"`
 }
 type OSUpdateSettings struct {
-	CatalogURL                      *string
+	CatalogURL                      *string `plist:",omitempty"`
 	IsDefaultCatalog                *bool
 	PreviousScanDate                *time.Time
-	PreviousScanResult              *string
+	PreviousScanResult              *string `plist:",omitempty"`
 	PerformPeriodicCheck            *bool
 	AutoCheckEnabled                *bool
 	BackgroundDownloadEnabled       *bool

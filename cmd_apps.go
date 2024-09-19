@@ -137,8 +137,8 @@ func init() {
 // InstallApplicationResponse is the command result report (response) for the "InstallApplication" Apple MDM command.
 type InstallApplicationResponse struct {
 	Identifier      *string `plist:",omitempty"`
-	State           *string `plist:",omitempty"` // supported values: Queued, NeedsRedemption, Redeeming, Prompting, PromptingForLogin, ValidatingPurchase, Installing, Managed, ManagedButUninstalled, UserInstalledApp, UserRejectedFailed, PromptingForUpdate, PromptingForUpdateLogin, ValidatingUpdate, Updating, UpdateRejected, PromptingForManagement, ManagementRejected, Unknown
-	RejectionReason *string `plist:",omitempty"` // supported values: AppAlreadyInstalled, AppAlreadyQueued, AppStoreDisabled, CouldNotVerifyAppID, ManagementChangeNotSupported, NotAnApp, NotSupported, PurchaseMethodNotSupported, PurchaseMethodNotSupportedInMultiUser
+	State           *string `plist:",omitempty"` // supported values: Queued, NeedsRedemption, Redeeming, Prompting, PromptingForLogin, ValidatingPurchase, Installing, Managed, ManagedButUninstalled, UserInstalledApp, UserRejected, PromptingForUpdate, PromptingForUpdateLogin, ValidatingUpdate, Updating, UpdateRejected, PromptingForManagement, ManagementRejected, Failed, Unknown
+	RejectionReason *string `plist:",omitempty"` // supported values: AppAlreadyInstalled, AppAlreadyQueued, AppStoreDisabled, CouldNotVerifyAppID, ManagementChangeNotSupported, NotAnApp, NotSupported, Other, PurchaseMethodNotSupported, PurchaseMethodNotSupportedInMultiUser
 	GenericResponse
 }
 

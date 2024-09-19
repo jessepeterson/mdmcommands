@@ -199,6 +199,7 @@ type ProfileListItem struct {
 	IsEncrypted              *bool                 `plist:",omitempty"`
 	SignerCertificates       *[][]byte             `plist:",omitempty"`
 	IsManaged                *bool                 `plist:",omitempty"`
+	Source                   *string               `plist:",omitempty"`
 	PayloadContent           *[]PayloadContentItem `plist:",omitempty"`
 }
 
