@@ -85,6 +85,8 @@ type Attributes struct {
 	Removable                              *bool     `plist:",omitempty"`
 	TapToPayScreenLock                     *bool     `plist:",omitempty"`
 	CellularSliceUUID                      *string   `plist:",omitempty"`
+	Hideable                               *bool     `plist:",omitempty"`
+	Lockable                               *bool     `plist:",omitempty"`
 }
 
 // InstallApplicationPayload is the "inner" command-specific payload for the "InstallApplication" Apple MDM command.
