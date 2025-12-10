@@ -67,7 +67,6 @@ groups = {
     ],
     "lom": ["lom.devicerequest.yaml", "lom.setuprequest.yaml"],
     "passcode": [
-        "passcode.unlocktoken.yaml",
         "passcode.recovery.set.yaml",
         "passcode.clear.yaml",
         "passcode.firmware.verify.yaml",

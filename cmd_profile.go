@@ -180,7 +180,7 @@ func init() {
 
 type PayloadContentItem struct {
 	PayloadType         string
-	PayloadVersion      int
+	PayloadVersion      int // supported value: 1
 	PayloadIdentifier   string
 	PayloadUUID         string
 	PayloadDisplayName  *string `plist:",omitempty"`
