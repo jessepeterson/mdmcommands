@@ -416,6 +416,7 @@ type InstalledApplicationListItem struct {
 	Version                   *string `plist:",omitempty"`
 	ShortVersion              *string `plist:",omitempty"`
 	Name                      *string `plist:",omitempty"`
+	Path                      *string `plist:",omitempty"`
 	BundleSize                *int    `plist:",omitempty"`
 	DynamicSize               *int    `plist:",omitempty"`
 	IsValidated               *bool   `plist:",omitempty"`

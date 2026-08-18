@@ -191,10 +191,11 @@ func init() {
 const EraseDeviceRequestType = "EraseDevice"
 
 type ReturnToService struct {
-	Enabled         bool
-	WiFiProfileData *[]byte `plist:",omitempty"`
-	MDMProfileData  *[]byte `plist:",omitempty"`
-	BootstrapToken  *[]byte `plist:",omitempty"`
+	Enabled               bool
+	WiFiProfileData       *[]byte `plist:",omitempty"`
+	MDMProfileData        *[]byte `plist:",omitempty"`
+	BootstrapToken        *[]byte `plist:",omitempty"`
+	ShouldRetryEnrollment *bool   `plist:",omitempty"`
 }
 
 // EraseDevicePayload is the "inner" command-specific payload for the "EraseDevice" Apple MDM command.

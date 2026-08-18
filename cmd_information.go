@@ -96,7 +96,7 @@ type ServiceSubscriptionProperty struct {
 	SubscriberCarrierNetwork *string
 }
 type SoftwareUpdateSettings struct {
-	RecommendationsCadence *int
+	RecommendationCadence *int
 }
 type AccessibilitySettings struct {
 	BoldTextEnabled            *bool
